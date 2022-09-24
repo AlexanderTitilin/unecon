@@ -1,0 +1,314 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}[theorem]{Лемма}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Java Lectures},
+    pdfpagemode=FullScreen,
+}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Конспект лекций по java}
+\author{Александр Титилин}
+\date{}
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Шапочка}
+    \begin{lstlisting}[language=Java] 
+        public class Main {
+            public static void main(String[] args){
+                write here
+            }
+        }
+    \end{lstlisting} 
+    \section{Hello World}
+    \begin{lstlisting}[language=Java] 
+        System.out.print("Hello World"); 
+        System.out.println();
+        System.out.print("How are you?");
+    \end{lstlisting} 
+
+    print - вывести в консоль без переноса строки.
+
+    println - вывести в консоль c переносом строки.
+    \section{Целочисленный тип данный int}
+
+    Создание переменнной с именем varibleName c типом  dataType
+
+    \begin{lstlisting}[language=Java] 
+    dataType varibleName; 
+    \end{lstlisting} 
+    Переменная sum  с типом данных int;
+
+    \begin{lstlisting}[language=Java] 
+    int sum; 
+    \end{lstlisting} 
+    Положим в sum число 12.
+    \begin{lstlisting}[language=Java] 
+    sum = 12; 
+    \end{lstlisting} 
+    Создаем перменную sum и сразу присваиваем ей значение 12
+    \begin{lstlisting}[language=Java] 
+    int sum = 12; 
+    \end{lstlisting} 
+    Описываем несколько переменных и некоторые инициализируем
+    \begin{lstlisting}[language=Java] 
+    int a , b , c = 5, d , e = 1234; 
+    \end{lstlisting} 
+    Вывод значение переменной sum на экран.
+    \begin{lstlisting}[language=Java] 
+    System.out.println(sum); 
+    \end{lstlisting} 
+    Выводить можем и значения выражений.
+    \begin{lstlisting}[language=Java] 
+    System.out.println(sum + 129291);
+    \end{lstlisting} 
+    \begin{lstlisting}[language=Java] 
+    System.out.println("next after sum" + sum + 1);
+    \end{lstlisting} 
+    Напишет "... 121"
+    \begin{lstlisting}[language=Java] 
+    System.out.println("next after sum" + ( sum + 1 ));
+    \end{lstlisting} 
+    Напишет "... 13"
+
+    int - целое число, размером 4 байта.
+    Имена переменных начинаются с маленькой буквы,
+    состоящие из нескольких слов используют camelCase
+    (countOfEvenDigits).
+    \section{Ввод с клавиатуры}
+    Для ввода с клавиатуры нужен объект Scaner из шапки с сайта школы.
+
+    \subsection{ Получение целого числа с клавиатуры. }
+    \begin{lstlisting}[language=Java] 
+    sum = in.nextInt() 
+    \end{lstlisting} 
+    Так тоже можно
+    \begin{lstlisting}[language=Java] 
+    int second = in.nextInt();
+    \end{lstlisting} 
+    \section{Действия с целыми числами}
+    Арифметические действия как везде ($*,+,-,/$,\%), деление целочисленное.
+    Побитовый сдвиг влево
+    \begin{lstlisting}[language=Java] 
+    a << b;
+    \end{lstlisting} 
+    Побитовый сдвиг вправо.
+    \begin{lstlisting}[language=Java] 
+    a >> b;
+    \end{lstlisting} 
+    Знаковый побитовый сдвиг вправо.
+    \begin{lstlisting}[language=Java] 
+    a >>> b; 
+    \end{lstlisting} 
+    \subsection{Замечание. Деление отрицательных чисел}
+
+    \begin{tabular}
+        {c | c | c | c}
+        Делимое & Делитель & Целое & Остаток \\
+        \hline
+        23 & 5 & 4 & 3\\
+        \hline
+        -23 & 5 & -4 & -3\\
+        \hline
+        23 & -5 & 4 & 3 \\
+        \hline
+        -23 & -5 & 4 & -3\\
+        \hline
+    \end{tabular}
+
+       В питоне и математике не так. 
+    \section{Целочисленные типы данных в java}
+
+    \begin{tabular}
+        {c | c | c | c}
+        Тип Данных  & Размер ячейки & Размер в битах & Диапозон \\
+        \hline
+        byte & 1 байт & 8 & $-128 \dots 127$ \\
+        short & 2 байта & 16 & $-32768 \dots +32767$ \\
+        int & 4 байта & 32 & $-2^{31} + \dots  2^{31} - 1$ \\
+        long & 8 байт & 64 & $-2^{63} + \dots + 2^{63} - 1$ \\
+        \hline
+    \end{tabular}
+    \section{Ерунда про двоичное представление, про знак и прочее}
+    Cуть в том, что старший разряд в двоичном представлении это знак.
+    Про дополнительный двоичный код.
+    Пока джавы нет идут байки про работу компа.
+    \section{15.09.2022}
+    \subsection{Вещественный тип данных}
+    Вещественные типы данных в java - float(4 байта) и double(8 байт). Если можно не использовать вещественные числа, то их не надо использовать. Прикол про $0.1 + 0.2 \neq 0.3$. Любые числа с вещественными числами будут приближенными.
+    \begin{lstlisting}[language=Java] 
+    float f = 1.7;
+    double d = 1.7;
+    \end{lstlisting} 
+    Первое работать не будет.
+    \subsection{Ввод}
+    \begin{lstlisting}[language=Java] 
+    double x = in.nextDouble() ;
+    \end{lstlisting} 
+    \subsection{Вывод на экран}
+    \begin{lstlisting}[language=Java] 
+    out.printf("%.3f",x); 
+    \end{lstlisting}  
+    Вывод вещественного числа x с 3 числами после запятой.
+    \begin{lstlisting}[language=Java] 
+    out.printf("Answer: %d %.2f\n",a,x);
+    \end{lstlisting} 
+    Вывод слова, целого числа a в десятичном представлении и вещественного числа x с двумя числами после запятой и перевод строки.
+    \subsection{Операции с вещесвенными числами}
+    Арифметические как в целых, кроме деления.
+    \begin{lstlisting}[language=Java] 
+    int b = 23,c=5;
+    double y = b/c;
+    \end{lstlisting} 
+    Y будет равен четырем. Надо делать так
+    \begin{lstlisting}[language=Java] 
+    double y =  (double)b / c;
+    \end{lstlisting} 
+    Надо какое нибудь число привести к вещественным.
+    \subsection{Приведения действительных чисел к целым}
+    \begin{lstlisting}[language=Java] 
+    int g = (int) x;
+    \end{lstlisting} 
+    \section{Математические функции в java.}
+    Все такие функции лежат в библиотеке Math, подключать не надо.
+
+    \begin{tabular}
+        {c | c |}
+        Math.abs(x) & $\mid x \mid$ \\
+        Math.sqrt(x) & $\sqrt{x} $ \\
+        Math.sin(x) & $\sin{x}$ \\
+        Math.cos(x) & $\cos{x}$ \\
+        Math.tan(x) & $\tan{x}$ \\
+    \end{tabular}
+    \subsection{Символьный тип данных char}
+    \begin{lstlisting}[language=Java] 
+    char c = 'F';
+    \end{lstlisting} 
+    Представляет собой целое беззнаковое число, занимает 2 байта.
+    \subsection{Ввод с клавиатуры}
+    \begin{lstlisting}[language=Java] 
+    char h = (char) System.in.read();
+    \end{lstlisting} 
+    При этом компилятор ругнется. Нужно использовать альтернативную шапочку
+    \begin{lstlisting}[language=Java] 
+    import java.io.IOException
+        public class Main {
+            public static void main(String[] args) throws IOException 
+            {
+                write here
+            }
+        }
+    \end{lstlisting} 
+\section{\date{22.09.2022}}
+\subsection{Логический тип данных}
+\begin{lstlisting}[language=Java] 
+boolean b = true; 
+\end{lstlisting} 
+\subsection{Операции сравнения}
+\begin{tabular}
+    {c | c}
+    Математика & Java \\
+    \hline
+    $>$ & >\\
+    $<$ & >\\
+    $=$ & == \\
+    $\ge $ & >=\\
+    $\le $ & <=\\
+    $\neq$ & !=\\
+\end{tabular}
+\begin{lstlisting}[language=Java] 
+boolean c = 3 > 5;
+out.print(c);
+\end{lstlisting} 
+Cчитывать boolean нельзя.
+\subsection{Логические операции}
+\begin{tabular}
+    {|c | c | c |}
+    \hline
+    Операция & Обозначение & Смысл  \\
+    \hline
+    Не (инверсия) & ! & Меняет логическое значение на противоположное \\
+    \hline
+    И (коньюнкция) & $\&\&$ & Истина, если оба операнда истина \\
+    \hline
+    Или (дизъюнкция) & || & Истина, если хотя бы один операнд истина \\
+    \hline
+    Xor & $\land$ & Истинна если операнды разные \\
+    \hline
+\end{tabular}
+В java нельзя использовать двойные сравнения.
+\subsection{Условный оператор}
+\begin{lstlisting}[language=Java] 
+if (cond){
+    operator-Yes;
+} 
+\end{lstlisting} 
+\begin{lstlisting}[language=Java] 
+if (cond){
+    operator-Yes;
+}
+else {
+    operator-No;
+}
+\end{lstlisting} 
+Примеры.
+\begin{lstlisting}[language=Java] 
+if (x > 10) {
+    System.out.println("Too much");
+} 
+\end{lstlisting} 
+\begin{lstlisting}[language=Java] 
+    if (x > 10){
+        System.out.println("Too much");
+    } 
+    else {
+        System.out.println("Good");
+    }
+\end{lstlisting} 
+\subsection{Область видимости переменных.}
+Создание переменной внутри блока 
+\begin{lstlisting}[language=Java] 
+{
+    int a = 10;
+} 
+\end{lstlisting} 
+Внутри скобок использовать можно, снаружи нет.
+\end{document}
