@@ -1,0 +1,507 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{tikz}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}[theorem]{Лемма}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Matan Lectures},
+    pdfpagemode=FullScreen,
+}
+\title{Лекции по математическому анализу.}
+\author{Александр Титилин}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+% 	\[
+% 		a \ge 0 , \exists \alpha \ge 0 : \alpha^2 = a
+% 		.\]
+% \end{theorem}
+% \begin{proof}
+% 	Пусть $A = \{x \mid x \ge  0 , x^2 \le a\}, B = \{x \mid x \ge  0, x^2 \ge  a\}$.
+%
+% 	A левее B ($\forall  \alpha \in A \forall  \beta \in B, \alpha \le \beta $) Доказываем от противного
+%     Пусть $\exists \alpha \in A \exists  \beta \in B: \alpha > \beta \implies 
+%     \alpha^2 > \beta^2$ Противоречие.
+%
+%     $A \neq \emptyset$ так как  $0 \in A$
+%
+%      $B \neq \emptyset$ Так как $a + 1 \in B$
+%
+%      По аксиоме полноты  $\forall a \in A, \forall  b \in B : a \le c \le b$.
+%      $c^2 = a$ От противного. 
+%      \begin{enumerate}
+%          \item Пусть $c^2 < a$ Доказать, что $\exists n \in \mathbb{N}$ $(c + \frac{1}{n })^2 < a$
+%              Противоречие $c + \frac{1}{n} \in A$ 
+%         \item
+%             Пусть $c^2 > a$ Доказать, что $\exists  n \in \mathbb{N}: (c - \frac{1}{n} > a) \implies
+%             c - \frac{1}{b} \in B$ 
+%              $$
+%      \end{enumerate}
+% \end{proof}
+\section{Предел последовательности.}
+\subsection{Окрестность точки.}
+Окрестность точки a - это произвольный открытый промежуток, содержащий точку a.
+\subsection{$\epsilon$ окрестность}
+$U_{\epsilon}(a) = ( e - a  ; e + a )$
+\subsection{Определение предела. Геометрическое}
+Число а называют пределом последовательности $(x_n)$ если в любой окрестности точки а,
+содержатся все члены  $x_n$, начиная с некоторого.
+\subsection{Определение предела. Еще одно}
+а является пределом $x_n$, если в любой симметричной последовательности точки а содержатся все
+члены последовательности начиная с некоторого.
+\subsection{Определение предела, еще одно с кванторами, нормальное}
+а является пределом $x_n$, если
+\[
+	\forall \epsilon > 0 \exists n_0 \forall n \ge n_0:~ \mid x_n - a \mid < \epsilon \Leftrightarrow
+	x_n \in (a-\epsilon,a+\epsilon)
+	.\]
+\subsection{Запись предела}
+\[
+	\lim_{n \to \infty} x_n = a
+	.\]
+\subsection{Примеры}
+\begin{enumerate}
+	\item $a_n = 1$. Предел 1, так как все члены последовательности лежат в окрестности 1.
+	\item  $a_n = \frac{1}{n}$ Предел 0. a,b концы окрестности .
+	      $\exists  n_0 \forall  n \ge n_0 : x_n \in (a,b)$. $n_0 = $ любое число $> \frac{1}{b}$
+	\item
+	      $x_n = \frac{n}{2n^2 + 1}$
+
+	      $(a , b ) $ - окрестность 0.
+
+	      \[
+		      \exists  n_0  \forall n \ge  n_0
+		      .\]
+	      Надо доказать, что $x_n < b$
+
+	      \[
+		      \frac{n}{n^2 + 1} < b
+		      .\]
+	\item $x_n = \frac{2n + 1}{3n + 2}$ Предел $\frac{2}{3}$
+	      \[
+		      \frac{2n + 1}{3n + 2} = \frac{2 + \frac{1}{n}}{3 + \frac{2}{n}}
+		      .\]
+\end{enumerate}
+\subsection{Единственность предела}
+\begin{theorem}
+	У сходящийся последовательности есть только 1 предел.
+	\[
+		x_n \rightarrow a  \land x_n \rightarrow b \implies a = b
+		.\]
+\end{theorem}
+\begin{proof}
+	Пусть $a < b$. Рассмотрим промежутки  $(-\infty , \frac{a + b}{2})$ и $( \frac{a+b}{2},+\infty )$.
+	$a \in (-\infty, \frac{a + b }{2}) \land b \in ( \frac{a+b}{2},+\infty )$
+	Так как $x_n \rightarrow a ~ \exists  n_0 \forall n \ge  n_0 x_n \in (-\infty,\frac{a + b}{2}),
+		\exists x_1 \forall n \ge  n_1 x_n \in (\frac{a + b}{2}, +\infty) , n_2 = \max(n_0,n_1)$
+\end{proof}
+\subsection{Ограниченные последовательности}
+\[
+\exists  M \forall n ~ x_n \le  M
+.\] 
+$x_n$ Ограничена сверху.
+\begin{theorem}
+    Всякая сходящаяся последовательность ограничена.
+\end{theorem}
+\begin{proof}
+   $x_n \rightarrow a$. Рассмотрим  окрестность (a - 1,a + 1) ,точки a.
+   \[
+       \exists  n_0 \forall  n \ge  n_0 ~ x_n \in (a - 1, a  + 1)
+   .\] 
+       $x_{n_0},x_{n_0 + 1}, \dots $  - ограничена
+\end{proof}
+\subsection{Предельный переход в неравенстве}
+\begin{theorem}
+    $(x_n),(y_n)$ - последовательности такие, что
+     \[
+    \forall n : x_n \le  y_n
+    .\] 
+    \[
+    \lim_{n \to \infty} x_n = a
+    .\] 
+    \[
+    \lim_{n \to \infty} y_n = b
+    .\] 
+    Тогда $a \le  b$
+
+    Заметим, что неравенство, выволняется с некоторого n. В условии теоремы нельзя оба знака неравенства заменить на строгие.
+\end{theorem}
+\begin{proof}
+    От противного. Пусть наши последовательности, такие что $x_n \le  y_n ~ \forall n, a > b$ 
+    Рассмотрим $(-\infty, \frac{a + b}{2}) , (\frac{a + b }{2}, +\infty)$. Первый окресность b,
+    второй окрестность точки a. Так как $x_n \rightarrow a$ ,то
+     \[
+    \exists n_0 , \forall n \ge n_0 x_n \in (\frac{a + b}{2}, +\infty)
+    .\] 
+    \[
+        \exists  n_1 , \forall  n\ge n_1 y_{n} \in (-\infty,\frac{a + b}{2})
+    .\]
+    \[
+        n_2 = \max{n_0,n_1}
+    .\] 
+    Тогда $n \ge  n_2$
+\end{proof}
+\subsection{Теорема о сжатой последовательности.} \label{menti}
+\begin{theorem}
+    $(x_n),(y_n),(z_n)$ - последовательности такие, что  $\forall ~  n x_n \le y_{n} \le z_n$.
+    Пусть $x_n \rightarrow a, z_n \rightarrow a$. То  $y_n \rightarrow a$
+\end{theorem}
+\begin{proof}
+   Возьмем произвольную окрестность U точки а. Так как $x_n \to a$, то  $\exists n_0 ~ \forall 
+   n > n_0 x_n \in U$. $z_n \to a  ~ \exists  n_1 \forall  n > n_1 z_n \in U. n_2 = \max{(n_0,n_1)} 
+   ~ \forall n > n_2 x_n \in U z_n \in U$. Но $x_n \le  y_n \le z_n$. Значит $y_n \in U$.
+\end{proof}
+\subsection{Арифметические операции над последовательностями}
+\subsubsection{Бесконечно малые последовательности}
+Последовательность называется бесконечно малой, если ее предел равен 0.
+\subsubsection{}
+\begin{theorem}
+$$(x_n) , a \in \mathbb{R}$$. Рассмотри последовательность $\alpha_n = x_n - a$. Тогда $x_n \to a$
+\leftrightarrow (\alpha_n)$ бесконечно малая.
+\end{theorem}
+\begin{proof}
+    \[
+    \alpha_n \to 0 \leftrightarrow \forall  \epsilon \exists  n_0 \forall n \ge  n_0 \mid \alpha_n \mid <\epsilon
+    .\] 
+\end{proof}
+\subsubsection{Сумма бесконечно малых последовательностей}
+\begin{theorem}
+    Сумма бесконечно малых бесконечно малая.
+\end{theorem}
+\begin{proof}
+    \[
+    \mid x_n + y_n \mid \le \mid x_n \mid + \mid y_n \mid 
+    .\] 
+Возьмем $\forall \epsilon > 0$. Рассмотри $\frac{e}{2}$.\\ Так как $x_n \to 0, ~ \exists n_1 \forall n
+\ge n_1 , \mid x_n \mid < \frac{\epsilon}{2}~$ \\
+$y_n \to 0 , \exists  n_2 \forall  n >- n_2 \mid y_n \mid < \frac{\epsilon}{2}$ 
+\[
+\mid x_n \mid + \mid y_n \mid < \epsilon
+.\] 
+\end{proof}
+\subsubsection{Произведение бесконечно малой на ограниченную}
+\begin{theorem}
+    $(x_n)$ - бесконечно малая, $(y_n)$ ограниченная   $\rightarrow (x_{n}y_{n})$ бесконечно малая. 
+\end{theorem}
+\begin{proof}
+    \[
+    \exists n_0 ~ \forall n \ge n_0 \mid x_n \mid < \frac{\epsilon}{C}
+    .\] 
+    \[
+    \exists C > 0 \forall n \mid y_n \mid < C
+    .\] 
+    \[
+    \mid x_n y_n \mid = \mid x_n \mid \mid y_n \mid < \epsilon
+    .\] 
+\end{proof}
+\subsubsection{Теорема о пределе суммы последовательности}
+\begin{theorem}
+Если 
+
+    \[
+    
+    x_n \to a
+    .\] 
+    \[
+    y_n \to b
+    .\] 
+    То
+    \[
+    x_n + y_n \to a + b
+    .\] 
+\end{theorem}
+\begin{proof}
+    $\alpha_n = x_n - a$,  $\beta_n = y_n - b$ бесконечно малые. 
+    Рассмотрим  сумму этимх последовательностей $(x_n + y_n) - (a + b) = \alpha_n + \beta_n$. Вторая сумма бесконечно малая, следовательно  $x_n + y_n \to a + b$
+\end{proof}
+\subsubsection{Теорема о пределе произведения последовательностей}
+\begin{theorem}
+    Если $x_n \to a, y_n \to b $ то $ x_n y_n \to ab$
+    \[
+    x_n y_n = ab + a\beta_n + b \alpha_n + \alpha_n \beta_n
+    .\] 
+    Три последних слагаемых бесконечно малые.
+\end{theorem}
+\subsubsection{Теорема о пределе частного}
+ \begin{theorem}
+Если $y_n \to b$, $\frac{1}{y_n} - \frac{1}{b} \to 0$
+\end{theorem}
+\begin{proof}
+   \[
+       \frac{b - y_n}{y_n- b} = (b - y_n)  \frac{1}{b}\frac{1}{y_n}
+   .\] 
+   Достаточно доказать, что $\frac{1}{y_n}$ ограничена.
+\end{proof}
+\begin{theorem}
+    Если $x_n \to a, y_n \to b , \forall n ~ y_n \neq 0, b\neq_0$, тогда
+    $\frac{x_n}{y_n} \to \frac{a}{b}$
+\end{theorem}
+\subsubsection{Предел квадратного корня}
+\begin{theorem}
+    $x_n ~\forall n ~x_n \ge 0  a \in \mathbb{R} x_n \to a$ тогда $\sqrt{x_n} = \sqrt{a}$
+\end{theorem}
+\section{Подпоследовательность}
+\subsection{Определение}
+$(x_n)$ - числовая последовательность. Выбираем любую строго возрастающую последовательность натуральных чисел ($n_1 < n_2  < n_3 \dots $). Рассматриваем последовательность с элементами $x_{n_1}, x_{n_2}, \dots x_{n_{k}} \dots$
+\subsection{}
+\begin{theorem} \label{1}
+    Из всякой последовательности можно выбрать монотонную подпоследовательность.
+\end{theorem}
+\begin{proof}
+
+   Пусть $x_n$ последовательность, у которой нет возрастающей подпоследовательности. Тогда 
+   докажем, что нее есть убывающая подпоследовательность. Если нет возрастающей подпоследовательность, то
+   есть член, все члены с индексами больше него, строго меньше него. Назовем его $x_{n_1}$.
+   Рассмотри такую подпоследовательность $x_{n +1} , x_{n + 2},\dots$, в ней нет возрастающей подпоследовательности (в противном случае она возрастающая). Раз это так, то в ней есть  $x_{n_2}$, Такой что все члены раньше него меньше него. Мы построили убывающую последовательность.
+\end{proof}
+\subsection{Теорема Вейерштрасса}
+\begin{theorem} \label{weir}
+    Всякая монотонная ограниченная последовательность имеет предел.
+\end{theorem}
+\begin{proof}
+    $(x_n)$ возрастает. Пусть A - это множество значений последовтельности  $(x_n)$. $A \neq \emptyset$.
+    А ограниченно сверху. Пусть $\alpha = \sup{A}$. По свойству супремума  $\forall \epsilon > 0 \exists x_{n_0}$ такой что $\alpha - x_{n_0} < \epsilon$. Тогда  $\forall  n\ge n_0 ~ \alpha -x_{n} < \epsilon \implies \mid x_n -\alpha \mid < \epsilon x_n \to \alpha$
+    Для убывающей самим надо.
+\end{proof}
+\subsection{Принцип выбора}
+\begin{theorem}
+    Из любой ограниченной последовательность, сходящуюся подпоследовательность.
+\end{theorem}
+\begin{proof}
+    В полслова. Пусть $x_n$ - ограниченная последовательность. По теореме \ref{1} есть монотонная подпоследовательность, по теореме \ref{weir} нужная подпоследовательность имеет предел.
+
+    Другое
+\end{proof}
+\section{Примеры}
+\begin{enumerate}
+    \item 
+        \[
+        x_n = \frac{2n + 5}{3n - 7} = \frac{2 + \frac{5}{n}}{3 - \frac{7}{n}   } \to \frac{2}{3}
+        .\] 
+    \item   
+        \[
+        \lim_{n \to \infty} (\sqrt{n + 1} - \sqrt{n}) = 
+        \lim_{n \to \infty} \frac{(\sqrt{n + 1 } - \sqrt{n})(\sqrt{n + 1} + \sqrt{n})}{\sqrt{n + 1}  + \sqrt{n} } = \lim_{n \to \infty} \frac{1}{\sqrt{n + 1}  + \sqrt{n} } =  0
+        .\]  
+    \item
+        \[
+        \lim_{n \to \infty} (\sqrt{n^2 + n}  - n) = 
+        \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + n}  + n} = 
+        \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}  + 1} = \frac{1}{2}
+        .\] 
+    \item \[
+            x_1 = \sqrt{2} , x_{n + 1} = \sqrt{2 + x_n} 
+    .\] 
+    Пусть $x_n \to a$. 
+    \[
+        x_{n + 1} = \sqrt{2 + x_n} \to a 
+    .\] 
+    \[
+    a  = \sqrt{2 + a} 
+    .\] 
+       \[
+       a = 2
+       .\]  
+       Доказываем существание предела. Последовательность строго возрастает. Ограничена по теореме \ref{weir}.
+       \item
+           \[
+           x_n = \frac{1}{1*2} + \frac{1}{2*3} + \frac{1}{3*4} + \dots + \frac{1}{n(n+1)} = 
+           \frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots + \frac{1}{n} - \frac{1}{n_1}=
+           1 - \frac{1}{n+ 1}
+           .\] 
+    \item
+        $x_n = q^n$, если $\mid q \mid < 1$, то $x_n \to 0$.
+        Нужно доказать, что  $\forall  \epsilon > 0 \exists n_0 \forall  n\ge n_0 \mid x_n \mid < \epsilon$
+        \[
+        \mid q \mid ^n < \epsilon
+        .\] 
+    \[
+        n > \log_{\mid q \mid}  \epsilon
+    .\] 
+\item $(x_n)$ последовательнось положительных  чисел.  Пусть  $\frac{x_{n + 1}}{x_n} \to c < 1$. Тогда $x_n \to 0$ \label{t}
+\end{enumerate}
+    \begin{corollary}
+        \[
+        \mid q \mid < 1 , q^n \to 0
+        .\] 
+        \[
+        x_n = \mid q \mid ^n
+        \frac{x_{n + 1}}{x_n} = \mid q \mid \to \mid q \mid < 1
+        .\] 
+        \[
+        \mid q \mid ^n \to 0
+        .\] 
+    \end{corollary}
+        \begin{corollary}
+            \[
+            x_n = \frac{a^n}{n!}
+            .\] 
+            \[
+                \frac{x_{n + 1}}{x_n} = \frac{a}{n + 1}
+            .\] 
+        \end{corollary}
+        \begin{corollary}
+            $a > 1$
+             \[
+            x_n = \frac{n^k}{a^n}
+            .\] 
+            \[
+                \frac{x_{n+1}}{x_n} = \frac{(1 + \frac{1}{n})^k}{a} < 1
+            .\] 
+        \end{corollary}
+        \begin{proof}\ref{t}
+   \[
+   c < 1
+   .\]  
+   Рассмотри произвольное q, такое что $c < q < 1$. Рассмотрим промежуток  $(-\infty,q)$, это окрстность точки с. Так как отношение стремится к c, то  $\exists  n_0 \forall  n\ge n \frac{x_{n + 1}}{x_n}
+   \in (-\infty,q)$ 
+   \[
+       \frac{x_{n_0 + 1}}{x_{n_0}} < q
+   .\] 
+   \[
+       \frac{x_{n_0 + 2}}{x_{n_0 + 1}} < q
+   .\] 
+   \[
+   \[
+       \frac{x_{n_0 + k}}{x_{n_0 + k + 1}} < q
+   .\] 
+   Перемножили все.
+   \[
+       \frac{x_{n_0 + k}}{x_{n_0}} < q^k
+   .\] 
+   \[
+      0 <  x_{n_0 + k} < x_{n_0} * q^k
+   .\] 
+   По \ref{menti}
+   \[
+       x_{n_0 + k} \to 0
+   .\] 
+\end{proof}
+\section{Неравенство Бернулли по индукции} \label{ber}
+   \[
+       (1 + a)^n (1 + a) \ge (1 +na)(1 + a)
+   .\] 
+   \[
+   (1 + a)^{n + 1} \ge  1 + a + na + na^2
+   .\] 
+   \[
+   1 + a + na + na^2 > 1 + a + na
+   .\] 
+\section{}
+\begin{theorem}
+    $x_n  = (1 + \frac{1}{n})^n$ имеет предел.
+\end{theorem}
+\begin{proof}
+            Докажем, что $( x_n )$ возрастает.
+            \[
+                \frac{x_{n + 1}}{x_n} = \frac{(n + 2)^{n + 1}}{(n + 1)^{n + 1}} \frac{n^n}{(n + 1)^{n}}=
+                \frac{(n^2 + 2n)^{n + 1}}{( (n + 1)^2 )^{n + 1}} * \frac{n + 1}{n}
+            .\] 
+            \[
+                (\frac{n^2 + 2n}{n^2 + 2n + 1})^{n + 1} * \frac{n + 1}{n} =
+                (1 - \frac{1}{n^2 + 2n + 1}) * \frac{n+1}{n} > 1 - (n + 1) \frac{1}{n^2+2n +1} * \frac{n+1}{n}
+            .\] 
+            \[
+            = ( 1 - \frac{1}{n + 1}) * \frac{n + 1}{n} = \frac{n}{n+1} * \frac{n + 1}{n} = 1
+            .\] 
+            Докажем, что последовательность ограниченна сверху.
+            \[
+                x_n = (1 + \frac{1}{n})^n = \sum_{k=0}^{n} C_{n}^k *1 + \frac{1}{n}^k =
+                \sum_{k = 0}^{n} \frac{n (n - 1) (n -2) \dots (n - (n - k))}{n^k} * \frac{1}{k!}
+            .\] 
+            \[
+                \sum_{k=0}^{n} (1 - \frac{1}{n}) (1 - \frac{2}{n}) \dots * (1-  \frac{k - 1}{n})*\frac{1}{k!} < \sum_{k = 1}^{n} \frac{1}{k}
+            .\] 
+            \[
+            = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} \dots \frac{1}{n!} <
+            .\] 
+            \[
+                < 1 + (1 + \frac{1}{2} + (\frac{1}{2})^2 + \dots + (\frac{1}{n})^{n -1}) < 3
+            .\] 
+            По \ref{weir} последовательность имеет предел, назовем его $e$.
+\end{proof}
+\section{} \label{h1}
+\[
+x_n \to b
+.\] 
+\[
+a > 0, a \neq 1
+.\] 
+\[
+    a^{x_n} \to a^b
+.\] 
+\section{} \label{h2}
+\[
+x_n > 0
+.\] 
+\[
+x_n \to b > 0
+.\] 
+\[
+    \log_a{x_n} \to \log_a{b}
+.\] 
+\section{}
+\[
+\alpha > 0
+.\] 
+\[
+    x_n \to b \implies x_{n}^{\alpha} \to b^{\alpha}
+.\] 
+\section{}
+\begin{theorem} \label{sin}
+    \[
+        \mid \sin{x} \mid = \mid x \mid
+    .\] 
+\end{theorem}
+\begin{proof}
+    При $0 < x < \frac{\pi}{2}$
+    Картинку потом нарисую.
+\end{proof}
+\section{}
+\begin{theorem}
+    \[
+        x_n \to b \implies \sin{x_n} \to \sin{a}
+    .\] 
+\end{theorem}
+\begin{proof}
+    \[
+        \sin{x_n} - \sin{a} \to 0
+    .\] 
+    \[
+        \mid \sin{x_n} - \sin{a} \mid = \mid \sin{\frac{x_n - a}{2}} \cos{\frac{x_n+a}{2}} \mid \le 
+        2 \mid \frac{x_n - a}{2} \mid = |x_n - a \mid
+    .\] 
+    \[
+        0 \le \mid \sin{x_n} - \sin{a} \mid \le  \mid x_n -a \mid
+    .\] 
+    По \ref{menti} $\sin{x_n} \to \sin{a}$
+\end{proof}
+\section{Задачка}
+\[
+\lim_{n \to \infty} (\frac{n + 3}{n + 1})^n =
+\lim_{n \to \infty} (1 - \frac{2}{n + 1})^n = 
+\lim_{n \to \infty} ((1 + \frac{2}{n + 1})^{\frac{n + 1}{2}})^{\frac{2n}{n + 1}}
+.\] 
+Тупо 1 добавили и вычли.
+\section{}
+\[
+    (1 + \frac{1}{n})^n \to e
+.\] 
+\[
+x_n = \frac{1}{n} \to 0
+.\] 
+\[
+    (1 + x_n)^{\frac{1}{x_n}} \to e
+.\] 
+\end{document} 
