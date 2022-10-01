@@ -52,7 +52,7 @@
 \section{Предел последовательности.}
 \subsection{Окрестность точки.}
 Окрестность точки a - это произвольный открытый промежуток, содержащий точку a.
-\subsection{$\epsilon$ окрестность}
+\subsection{окрестность}
 $U_{\epsilon}(a) = ( e - a  ; e + a )$
 \subsection{Определение предела. Геометрическое}
 Число а называют пределом последовательности $(x_n)$ если в любой окрестности точки а,
@@ -503,5 +503,79 @@ x_n = \frac{1}{n} \to 0
 .\] 
 \[
     (1 + x_n)^{\frac{1}{x_n}} \to e
+.\] 
+\section{}
+\[
+    \lim_{n \to \infty} \frac{\log_{a}{n}}{n^k} = 0
+.\] 
+\section{Бесконечно большие последовательности}
+Попробуем дать точный смысл записи $x_n \to + \infty, x_n \to -\infty,x_n \to \infty$.
+\subsection{}
+\[
+x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 x_n > C
+.\] 
+\subsection{}
+\[
+x_n \to -\infty \iff \forall C ~ \exists  ~ n_0 ~ \forall n > n_0 ~ x_n < C
+.\] 
+\subsection{}
+\[
+x_n \to \infty \iff \mid x_n \mid \to + \infty
+.\] 
+\subsection{}
+\begin{theorem}
+    Пусть $(x_n)$ такова, что  $\forall x_n \neq 0$, тогда $(x_n)$ - бесконечно большая
+     $\iff \frac{1}{x_n}$ бесконечно малая.
+\end{theorem}
+\begin{proof}
+\[
+x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 \mid x_n \mid > C
+.\] 
+\[
+\frac{1}{x_n} \to 0  \iff \forall  \epsilon \exists  n_0 ~ \forall n \ge  n_0 \frac{1}{\mid x_n \mid} <\epsilon
+.\] 
+\[
+\mid x_n \mid > \frac{1}{\epsilon}
+.\] 
+\end{proof}
+\section{Расширеннная прямая}
+$\overline{\mathbb{R}}$ - это $\mathbb{R} \cup \{+\infty,-\infty\}$
+\[
+-\infty < \infty
+.\] 
+\[
+a \in \mathbb{R} , ~ -\infty < a < +\infty
+.\] 
+\section{Предел функций.}
+\subsection{Предельная точка}
+$X \subset \mathbb{R}, a \in X$. Точка а называется предельной точкой множества X, если в любой окрестности точки а, есть хотя бы одно число из X, отличное от а.
+\subsection{}
+\begin{theorem}
+    a - предельная точка множества D $\iff$ Если существует  $(x_n)$ точек множества D
+    отличных от а, такая что $x_n \to a$
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть а предельная точка D.
+            Смотрим промежуток $(a-1;a+1)$. Рассмотрим  $x_1 \in (a-1;a+1),x_1 \neq a, x_1 \in D$. $
+            x_2 \in (a - \frac{1}{2},a + \frac{1}{2}), x_2 \neq a , x_2 \in D$. И так далее, мы построили последовательность такую, что $\forall x_n \in D,x x_n \neq a, a - \frac{1}{n} < x_n < a + \frac{1}{n}$. По \ref{menti} $x_n \to a$
+            \item
+                Пусть  $(x_n)$ такова, что  $x_n \in D,x_n \neq a, x_n \to a$. Взяли произвольну окрестностность а $\exists n_0  ~ x_{n_0} \in U(a)$
+    \end{enumerate}
+\end{proof}
+\subsubsection{Пример}
+Возьмем $D = [0;1)$. Найдем все его предельные точки. Это все точки из  $[0;1)$
+\subsubsection{Пример}
+Возьмем за  $D = [0;1) \cup \{2\}$.
+\subsection{Определение предела функции}
+Пусть $f : D \to \mathbb{R}$, а - предельная точка множества D. Число A называется пределом функции f в точке a,
+если $\forall (x_n)$
+\[
+\begin{cases}
+    \forall x_n \neq a\\
+    \forall  x_n \in D\\
+    x_n \to a\\
+\end{cases}
+\implies f(x_n) \to A
 .\] 
 \end{document} 
