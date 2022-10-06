@@ -9,8 +9,7 @@
 \newtheorem{theorem}{Теорема}
 \newtheorem{corollary}{Следствие}[theorem]
 \newtheorem{lemma}[theorem]{Лемма}
-\hypersetup{
-    colorlinks=true,
+\hypersetup{ colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
@@ -41,8 +40,7 @@
 %      По аксиоме полноты  $\forall a \in A, \forall  b \in B : a \le c \le b$.
 %      $c^2 = a$ От противного. 
 %      \begin{enumerate}
-%          \item Пусть $c^2 < a$ Доказать, что $\exists n \in \mathbb{N}$ $(c + \frac{1}{n })^2 < a$
-%              Противоречие $c + \frac{1}{n} \in A$ 
+%          \item Пусть $c^2 < a$ Доказать, что $\exists n \in \mathbb{N}$ $(c + \frac{1}{n })^2 < a$ Противоречие $c + \frac{1}{n} \in A$ 
 %         \item
 %             Пусть $c^2 > a$ Доказать, что $\exists  n \in \mathbb{N}: (c - \frac{1}{n} > a) \implies
 %             c - \frac{1}{b} \in B$ 
@@ -578,4 +576,38 @@ $X \subset \mathbb{R}, a \in X$. Точка а называется предел
 \end{cases}
 \implies f(x_n) \to A
 .\] 
+\subsection{Запись предела функции}
+\[
+\lim_{x \to a} f(x) = A
+.\] 
+\subsection{}
+Пусть $\lim_{x \to a} f(x) = A \land \lim_{x \to a} f(x) = B $
+\subsection{}
+\begin{theorem}
+    $f : D \to \mathbb{R}$,a предельная точка множества D. U - окрестность точки а, тогда предел
+    функции в точке существует  $\iff$ существует предел на сужении  $D \cap U$
+\end{theorem}
+\subsection{Теорема о предельном переходе в неравенстве}
+\begin{theorem}
+    $f,g : D \to \mathbb{R}$, а предельная точка множества D.
+    \[
+    \forall  x \in D f(x) \le  f(x) 
+    .\] 
+    \[
+    \exists \lim_{x \to a} f(x), \lim_{n \to a} g(x)
+    .\] 
+    Тогда $\lim_{x \to a} f(x) \le  \lim_{x \to a} g(x)$
+\end{theorem}
+\subsection{}\label{menti2}
+Теорема \ref{menti}, но про пределы функции.
+\subsection{Теорема о пределе суммы, произведения и частного}
+Пусть $f,g: D \to \mathbb{R}$,а предельна точка множества D.
+Пусть $\lim_{x \to a} f(x) = A, \lim_{x \to a} g(x) = b $
+Тогда
+\begin{enumerate}
+    \item $\lim_{x \to a} f(x) + g(x) = A + B$
+    \item $\lim_{x \to a} f(x) * g(x) = A*B$
+    \item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}, g(x) \neq 0, B \neq 0$
+\end{enumerate}
+\section{}
 \end{document} 
