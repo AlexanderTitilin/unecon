@@ -311,4 +311,66 @@ if (x > 10) {
 } 
 \end{lstlisting} 
 Внутри скобок использовать можно, снаружи нет.
+\section{Цикл с счетчиком \underline{for}}
+Цикл повторяющаяся последовательность действий, которые называются телом цикла. 
+\begin{lstlisting}[language=Java] 
+for(start values; condition;change counter) {
+    body
+}
+\end{lstlisting} 
+В блоке начальных значений, можно описывать переменнные. В блоке изменения счетчика можно менять несколько начальных значений.
+\begin{lstlisting}[language=Java] 
+for(int i = 0,k,j = ; i < 10 && j < 1000;i++,j+10) 
+\end{lstlisting} 
+Эти переменнные пропадут, после окончания цикла.
+\begin{lstlisting}[language=Java] 
+for(int i = 5; i <= 8; i ++) 
+\end{lstlisting} 
+Выведет 
+\begin{lstlisting}[language=Java] 
+5
+6
+7
+8
+\end{lstlisting} 
+\subsection{Задачка}
+Дано натуральное число, нужно вывести первые n четных чисел.
+\subsubsection{Первый cпособ, формулкой}
+\begin{lstlisting}[language=Java] 
+for(int i = 0; i < n ; i++){
+    out.println(2*(i + 1));
+}
+\end{lstlisting} 
+\subsubsection{Второй способ, дополнительная переменная}
+\begin{lstlisting}[language=Java] 
+int a = 2
+for(int i = 0; i < n; i++){
+    out.println(a);
+    a += 2;
+}
+\end{lstlisting} 
+Тоже самое, но короче
+\begin{lstlisting}[language=Java] 
+for (int i = 0,a = 2; i < n;i++,a+=2) {
+    out.println(a);
+}
+\end{lstlisting} 
+\subsection{Задача}
+Дано число \underline{n} (количество элементов последовательности), после этого даны n чисел.
+Надо найти $\sum$ четных элементов данной последовательности
+\begin{lstlisting}[language=Java] 
+int n = in.nextInt(); 
+int sum = 0;
+for (int i = 0,a; i < n ; i++){
+   a = in.nextInt();
+   if (a % 2 == 0){
+        sum +=a;
+   }
+}
+out.println(sum);
+\end{lstlisting} 
+\subsection{Правило}
+ 
+Начальные значения переменных (суммы, количества) нужно задавать
+непосредственно перед тем циклом, в котором они изменяются.
 \end{document}
