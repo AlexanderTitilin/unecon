@@ -7,10 +7,7 @@
 \usepackage{mathtools}
 \usepackage{listings}
 \usepackage{xcolor}
-\newtheorem{theorem}{Теорема}
-\newtheorem{corollary}{Следствие}[theorem]
-\newtheorem{lemma}[theorem]{Лемма}
-
+\newtheorem{task}{Задача}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -370,7 +367,23 @@ for (int i = 0,a; i < n ; i++){
 out.println(sum);
 \end{lstlisting} 
 \subsection{Правило}
- 
 Начальные значения переменных (суммы, количества) нужно задавать
 непосредственно перед тем циклом, в котором они изменяются.
+\section{16.10.2022}
+\subsection{Поиск максимума.}
+\begin{task}
+    Дано число n. Затем ищем еще n целых чисел. Найти максимальный элемент.
+\end{task}
+    \begin{lstlisting}[language=Java] 
+    int n = in.nextInt();
+    int max = in.nextInt();
+    int x;
+    for (int i = 0; i < n - 1;i++){
+        x = in.nextInt();
+        if (x > max){
+            max = x;
+        }
+    }
+    out.println(max);
+    \end{lstlisting} 
 \end{document}
