@@ -1,9 +1,10 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{amssymb}
 \usepackage{hyperref}
 \usepackage{tikz}
 \newtheorem{theorem}{Теорема}
@@ -609,5 +610,101 @@ $X \subset \mathbb{R}, a \in X$. Точка а называется предел
     \item $\lim_{x \to a} f(x) * g(x) = A*B$
     \item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}, g(x) \neq 0, B \neq 0$
 \end{enumerate}
-\section{}
+\section{Композиция функций для вещественных функций}
+\[
+f : D \to \mathbb{R}
+.\] 
+\[
+g : E \to \mathbb{R}
+.\] 
+\[
+f(D) \subset E
+.\] 
+\[
+g \circ f = g(f(x))
+.\] 
+\subsection{Примеры}
+\[
+    F(x) = \sin^2{x}
+.\] 
+\[
+    f(x) = \sin{x}
+.\] 
+\[
+g(x) = x^2
+.\] 
+\[
+g \circ f = F
+.\] 
+\[
+f \circ g = \sin x^2
+.\] 
+\section{Предел композиции.}
+\begin{theorem}
+    $f : D \to \mathbb{R}$, $g : E \to \mathbb{R}$. Пусть $f(D) \subset E$. 
+    $а$ пределеьная точка множества $D$  и  $\lim_{x \to a} f(x) = b$. Пусть b предельная точка множества $E$ и $\lim_{t \to b} g(t) = c$. Пусть выполняется
+    одно из двух условий.
+    \begin{enumerate}
+        \item $\exists  U$ точки $a$, такая что $\forall  x \neq a \in U \cap D, f(x) \neq b$
+        \item $\lim_{t \to b} g(t) = g(b) $.
+    \end{enumerate}
+    Тогда $\lim_{x \to a} g(f(x)) =  c$
+\end{theorem}
+\begin{proof}
+    Пусть 1 верно, мы хотим доказать, что $\lim_{x \to a} g(f(x)) = c$
+    Возьмем $\forall  (x_n)$ такую что $x_n \in D, x_a \neq a x_n \to a$ 
+    \[
+    t_n = f(x_n)
+    .\] 
+    \[
+    t_n \to b
+    .\] 
+    Нужно проверить, что $g(f(x_n)) \to c$.
+    \[
+    \dots
+    .\] 
+\end{proof}
+\subsection{Пример}
+\[
+    \lim_{x \to 0} \frac{\sin{3x}}{x}
+.\] 
+\[
+3x = t 
+.\] 
+\[
+    \frac{\sin{x}}{x} = \frac{\sin{t}}{t/3} = 3 \frac{\sin{t}}{t}
+.\] 
+\section{Одностронние  пределы.}
+\begin{theorem}
+    D - промежуток, $f : D \to \mathbb{R}$, а предельная точка.
+    $\lim_{x \to a} f(x)$ сущесвтует $\iff$  оба односторонних предела существуют и они равны друг другу.
+\end{theorem}
+\section{Вычисление пределов}
+\subsection{}
+$\lim_{x \to c} a^x = a^c$
+\begin{proof}
+   \begin{enumerate}
+       \item $a>1$
+           \[
+               a^x - a^c = a^c(a^{x - c} - 1)
+           .\] 
+           Докажем, что $a^{x - c} - 1 \to 0, x \to c$
+            \[
+           t = x - c
+           .\] 
+           \[
+           \lim_{t \to 0} (a^t - 1) = 0 ?
+           .\] 
+           Докажем, что $a^{t_n} - 1 \to 0$
+           \[
+               \forall \epsilon > 0 \exists o \forall n \ge n_0 1 - \epsilon < a^{t_n} < 1 + \epsilon
+           .\] 
+           \[
+               \log_a{( 1 - \epsilon )} < t_n < \log_a{( 1 + \epsilon )}
+           .\] 
+           Расссмотрим промежуток $(\log_a{( 1 - \epsilon )};\log_a{( 1 + \epsilon )})$
+   \end{enumerate} 
+   \item
+       $\lim_{x \to c} \log_a{x} = \log_a{c}$
+\end{proof}
 \end{document} 
