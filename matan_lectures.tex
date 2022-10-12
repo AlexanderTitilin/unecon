@@ -7,15 +7,16 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{pgfplots}
 \newtheorem{theorem}{Теорема}
 \newtheorem{corollary}{Следствие}[theorem]
 \newtheorem{lemma}[theorem]{Лемма}
 \hypersetup{ colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Matan Lectures},
-    pdfpagemode=FullScreen,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=cyan,
+	pdftitle={Matan Lectures},
+	pdfpagemode=FullScreen,
 }
 \title{Лекции по математическому анализу.}
 \author{Александр Титилин}
@@ -107,460 +108,460 @@ $U_{\epsilon}(a) = ( e - a  ; e + a )$
 \end{proof}
 \subsection{Ограниченные последовательности}
 \[
-\exists  M \forall n ~ x_n \le  M
-.\] 
+	\exists  M \forall n ~ x_n \le  M
+	.\]
 $x_n$ Ограничена сверху.
 \begin{theorem}
-    Всякая сходящаяся последовательность ограничена.
+	Всякая сходящаяся последовательность ограничена.
 \end{theorem}
 \begin{proof}
-   $x_n \rightarrow a$. Рассмотрим  окрестность (a - 1,a + 1) ,точки a.
-   \[
-       \exists  n_0 \forall  n \ge  n_0 ~ x_n \in (a - 1, a  + 1)
-   .\] 
-       $x_{n_0},x_{n_0 + 1}, \dots $  - ограничена
+	$x_n \rightarrow a$. Рассмотрим  окрестность (a - 1,a + 1) ,точки a.
+	\[
+		\exists  n_0 \forall  n \ge  n_0 ~ x_n \in (a - 1, a  + 1)
+		.\]
+	$x_{n_0},x_{n_0 + 1}, \dots $  - ограничена
 \end{proof}
 \subsection{Предельный переход в неравенстве}
 \begin{theorem}
-    $(x_n),(y_n)$ - последовательности такие, что
-     \[
-    \forall n : x_n \le  y_n
-    .\] 
-    \[
-    \lim_{n \to \infty} x_n = a
-    .\] 
-    \[
-    \lim_{n \to \infty} y_n = b
-    .\] 
-    Тогда $a \le  b$
+	$(x_n),(y_n)$ - последовательности такие, что
+	\[
+		\forall n : x_n \le  y_n
+		.\]
+	\[
+		\lim_{n \to \infty} x_n = a
+		.\]
+	\[
+		\lim_{n \to \infty} y_n = b
+		.\]
+	Тогда $a \le  b$
 
-    Заметим, что неравенство, выволняется с некоторого n. В условии теоремы нельзя оба знака неравенства заменить на строгие.
+	Заметим, что неравенство, выволняется с некоторого n. В условии теоремы нельзя оба знака неравенства заменить на строгие.
 \end{theorem}
 \begin{proof}
-    От противного. Пусть наши последовательности, такие что $x_n \le  y_n ~ \forall n, a > b$ 
-    Рассмотрим $(-\infty, \frac{a + b}{2}) , (\frac{a + b }{2}, +\infty)$. Первый окресность b,
-    второй окрестность точки a. Так как $x_n \rightarrow a$ ,то
-     \[
-    \exists n_0 , \forall n \ge n_0 x_n \in (\frac{a + b}{2}, +\infty)
-    .\] 
-    \[
-        \exists  n_1 , \forall  n\ge n_1 y_{n} \in (-\infty,\frac{a + b}{2})
-    .\]
-    \[
-        n_2 = \max{n_0,n_1}
-    .\] 
-    Тогда $n \ge  n_2$
+	От противного. Пусть наши последовательности, такие что $x_n \le  y_n ~ \forall n, a > b$
+	Рассмотрим $(-\infty, \frac{a + b}{2}) , (\frac{a + b }{2}, +\infty)$. Первый окресность b,
+	второй окрестность точки a. Так как $x_n \rightarrow a$ ,то
+	\[
+		\exists n_0 , \forall n \ge n_0 x_n \in (\frac{a + b}{2}, +\infty)
+		.\]
+	\[
+		\exists  n_1 , \forall  n\ge n_1 y_{n} \in (-\infty,\frac{a + b}{2})
+		.\]
+	\[
+		n_2 = \max{n_0,n_1}
+		.\]
+	Тогда $n \ge  n_2$
 \end{proof}
 \subsection{Теорема о сжатой последовательности.} \label{menti}
 \begin{theorem}
-    $(x_n),(y_n),(z_n)$ - последовательности такие, что  $\forall ~  n x_n \le y_{n} \le z_n$.
-    Пусть $x_n \rightarrow a, z_n \rightarrow a$. То  $y_n \rightarrow a$
+	$(x_n),(y_n),(z_n)$ - последовательности такие, что  $\forall ~  n x_n \le y_{n} \le z_n$.
+	Пусть $x_n \rightarrow a, z_n \rightarrow a$. То  $y_n \rightarrow a$
 \end{theorem}
 \begin{proof}
-   Возьмем произвольную окрестность U точки а. Так как $x_n \to a$, то  $\exists n_0 ~ \forall 
-   n > n_0 x_n \in U$. $z_n \to a  ~ \exists  n_1 \forall  n > n_1 z_n \in U. n_2 = \max{(n_0,n_1)} 
-   ~ \forall n > n_2 x_n \in U z_n \in U$. Но $x_n \le  y_n \le z_n$. Значит $y_n \in U$.
+	Возьмем произвольную окрестность U точки а. Так как $x_n \to a$, то  $\exists n_0 ~ \forall
+		n > n_0 x_n \in U$. $z_n \to a  ~ \exists  n_1 \forall  n > n_1 z_n \in U. n_2 = \max{(n_0,n_1)}
+		~ \forall n > n_2 x_n \in U z_n \in U$. Но $x_n \le  y_n \le z_n$. Значит $y_n \in U$.
 \end{proof}
 \subsection{Арифметические операции над последовательностями}
 \subsubsection{Бесконечно малые последовательности}
 Последовательность называется бесконечно малой, если ее предел равен 0.
 \subsubsection{}
 \begin{theorem}
-$$(x_n) , a \in \mathbb{R}$$. Рассмотри последовательность $\alpha_n = x_n - a$. Тогда $x_n \to a$
-\leftrightarrow (\alpha_n)$ бесконечно малая.
+	$$(x_n) , a \in \mathbb{R}$$. Рассмотри последовательность $\alpha_n = x_n - a$. Тогда $x_n \to a$
+	\leftrightarrow (\alpha_n)$ бесконечно малая.
 \end{theorem}
 \begin{proof}
-    \[
-    \alpha_n \to 0 \leftrightarrow \forall  \epsilon \exists  n_0 \forall n \ge  n_0 \mid \alpha_n \mid <\epsilon
-    .\] 
+	\[
+		\alpha_n \to 0 \leftrightarrow \forall  \epsilon \exists  n_0 \forall n \ge  n_0 \mid \alpha_n \mid <\epsilon
+		.\]
 \end{proof}
 \subsubsection{Сумма бесконечно малых последовательностей}
 \begin{theorem}
-    Сумма бесконечно малых бесконечно малая.
+	Сумма бесконечно малых бесконечно малая.
 \end{theorem}
 \begin{proof}
-    \[
-    \mid x_n + y_n \mid \le \mid x_n \mid + \mid y_n \mid 
-    .\] 
-Возьмем $\forall \epsilon > 0$. Рассмотри $\frac{e}{2}$.\\ Так как $x_n \to 0, ~ \exists n_1 \forall n
-\ge n_1 , \mid x_n \mid < \frac{\epsilon}{2}~$ \\
-$y_n \to 0 , \exists  n_2 \forall  n >- n_2 \mid y_n \mid < \frac{\epsilon}{2}$ 
-\[
-\mid x_n \mid + \mid y_n \mid < \epsilon
-.\] 
+	\[
+		\mid x_n + y_n \mid \le \mid x_n \mid + \mid y_n \mid
+		.\]
+	Возьмем $\forall \epsilon > 0$. Рассмотри $\frac{e}{2}$.\\ Так как $x_n \to 0, ~ \exists n_1 \forall n
+		\ge n_1 , \mid x_n \mid < \frac{\epsilon}{2}~$ \\
+	$y_n \to 0 , \exists  n_2 \forall  n >- n_2 \mid y_n \mid < \frac{\epsilon}{2}$
+	\[
+		\mid x_n \mid + \mid y_n \mid < \epsilon
+		.\]
 \end{proof}
 \subsubsection{Произведение бесконечно малой на ограниченную}
 \begin{theorem}
-    $(x_n)$ - бесконечно малая, $(y_n)$ ограниченная   $\rightarrow (x_{n}y_{n})$ бесконечно малая. 
+	$(x_n)$ - бесконечно малая, $(y_n)$ ограниченная   $\rightarrow (x_{n}y_{n})$ бесконечно малая.
 \end{theorem}
 \begin{proof}
-    \[
-    \exists n_0 ~ \forall n \ge n_0 \mid x_n \mid < \frac{\epsilon}{C}
-    .\] 
-    \[
-    \exists C > 0 \forall n \mid y_n \mid < C
-    .\] 
-    \[
-    \mid x_n y_n \mid = \mid x_n \mid \mid y_n \mid < \epsilon
-    .\] 
+	\[
+		\exists n_0 ~ \forall n \ge n_0 \mid x_n \mid < \frac{\epsilon}{C}
+		.\]
+	\[
+		\exists C > 0 \forall n \mid y_n \mid < C
+		.\]
+	\[
+		\mid x_n y_n \mid = \mid x_n \mid \mid y_n \mid < \epsilon
+		.\]
 \end{proof}
 \subsubsection{Теорема о пределе суммы последовательности}
 \begin{theorem}
-Если 
+	Если
 
-    \[
-    
-    x_n \to a
-    .\] 
-    \[
-    y_n \to b
-    .\] 
-    То
-    \[
-    x_n + y_n \to a + b
-    .\] 
+	\[
+
+		x_n \to a
+		.\]
+	\[
+		y_n \to b
+		.\]
+	То
+	\[
+		x_n + y_n \to a + b
+		.\]
 \end{theorem}
 \begin{proof}
-    $\alpha_n = x_n - a$,  $\beta_n = y_n - b$ бесконечно малые. 
-    Рассмотрим  сумму этимх последовательностей $(x_n + y_n) - (a + b) = \alpha_n + \beta_n$. Вторая сумма бесконечно малая, следовательно  $x_n + y_n \to a + b$
+	$\alpha_n = x_n - a$,  $\beta_n = y_n - b$ бесконечно малые.
+	Рассмотрим  сумму этимх последовательностей $(x_n + y_n) - (a + b) = \alpha_n + \beta_n$. Вторая сумма бесконечно малая, следовательно  $x_n + y_n \to a + b$
 \end{proof}
 \subsubsection{Теорема о пределе произведения последовательностей}
 \begin{theorem}
-    Если $x_n \to a, y_n \to b $ то $ x_n y_n \to ab$
-    \[
-    x_n y_n = ab + a\beta_n + b \alpha_n + \alpha_n \beta_n
-    .\] 
-    Три последних слагаемых бесконечно малые.
+	Если $x_n \to a, y_n \to b $ то $ x_n y_n \to ab$
+	\[
+		x_n y_n = ab + a\beta_n + b \alpha_n + \alpha_n \beta_n
+		.\]
+	Три последних слагаемых бесконечно малые.
 \end{theorem}
 \subsubsection{Теорема о пределе частного}
- \begin{theorem}
-Если $y_n \to b$, $\frac{1}{y_n} - \frac{1}{b} \to 0$
+\begin{theorem}
+	Если $y_n \to b$, $\frac{1}{y_n} - \frac{1}{b} \to 0$
 \end{theorem}
 \begin{proof}
-   \[
-       \frac{b - y_n}{y_n- b} = (b - y_n)  \frac{1}{b}\frac{1}{y_n}
-   .\] 
-   Достаточно доказать, что $\frac{1}{y_n}$ ограничена.
+	\[
+		\frac{b - y_n}{y_n- b} = (b - y_n)  \frac{1}{b}\frac{1}{y_n}
+		.\]
+	Достаточно доказать, что $\frac{1}{y_n}$ ограничена.
 \end{proof}
 \begin{theorem}
-    Если $x_n \to a, y_n \to b , \forall n ~ y_n \neq 0, b\neq_0$, тогда
-    $\frac{x_n}{y_n} \to \frac{a}{b}$
+	Если $x_n \to a, y_n \to b , \forall n ~ y_n \neq 0, b\neq_0$, тогда
+	$\frac{x_n}{y_n} \to \frac{a}{b}$
 \end{theorem}
 \subsubsection{Предел квадратного корня}
 \begin{theorem}
-    $x_n ~\forall n ~x_n \ge 0  a \in \mathbb{R} x_n \to a$ тогда $\sqrt{x_n} = \sqrt{a}$
+	$x_n ~\forall n ~x_n \ge 0  a \in \mathbb{R} x_n \to a$ тогда $\sqrt{x_n} = \sqrt{a}$
 \end{theorem}
 \section{Подпоследовательность}
 \subsection{Определение}
 $(x_n)$ - числовая последовательность. Выбираем любую строго возрастающую последовательность натуральных чисел ($n_1 < n_2  < n_3 \dots $). Рассматриваем последовательность с элементами $x_{n_1}, x_{n_2}, \dots x_{n_{k}} \dots$
 \subsection{}
 \begin{theorem} \label{1}
-    Из всякой последовательности можно выбрать монотонную подпоследовательность.
+	Из всякой последовательности можно выбрать монотонную подпоследовательность.
 \end{theorem}
 \begin{proof}
 
-   Пусть $x_n$ последовательность, у которой нет возрастающей подпоследовательности. Тогда 
-   докажем, что нее есть убывающая подпоследовательность. Если нет возрастающей подпоследовательность, то
-   есть член, все члены с индексами больше него, строго меньше него. Назовем его $x_{n_1}$.
-   Рассмотри такую подпоследовательность $x_{n +1} , x_{n + 2},\dots$, в ней нет возрастающей подпоследовательности (в противном случае она возрастающая). Раз это так, то в ней есть  $x_{n_2}$, Такой что все члены раньше него меньше него. Мы построили убывающую последовательность.
+	Пусть $x_n$ последовательность, у которой нет возрастающей подпоследовательности. Тогда
+	докажем, что нее есть убывающая подпоследовательность. Если нет возрастающей подпоследовательность, то
+	есть член, все члены с индексами больше него, строго меньше него. Назовем его $x_{n_1}$.
+	Рассмотри такую подпоследовательность $x_{n +1} , x_{n + 2},\dots$, в ней нет возрастающей подпоследовательности (в противном случае она возрастающая). Раз это так, то в ней есть  $x_{n_2}$, Такой что все члены раньше него меньше него. Мы построили убывающую последовательность.
 \end{proof}
 \subsection{Теорема Вейерштрасса}
 \begin{theorem} \label{weir}
-    Всякая монотонная ограниченная последовательность имеет предел.
+	Всякая монотонная ограниченная последовательность имеет предел.
 \end{theorem}
 \begin{proof}
-    $(x_n)$ возрастает. Пусть A - это множество значений последовтельности  $(x_n)$. $A \neq \emptyset$.
-    А ограниченно сверху. Пусть $\alpha = \sup{A}$. По свойству супремума  $\forall \epsilon > 0 \exists x_{n_0}$ такой что $\alpha - x_{n_0} < \epsilon$. Тогда  $\forall  n\ge n_0 ~ \alpha -x_{n} < \epsilon \implies \mid x_n -\alpha \mid < \epsilon x_n \to \alpha$
-    Для убывающей самим надо.
+	$(x_n)$ возрастает. Пусть A - это множество значений последовтельности  $(x_n)$. $A \neq \emptyset$.
+	А ограниченно сверху. Пусть $\alpha = \sup{A}$. По свойству супремума  $\forall \epsilon > 0 \exists x_{n_0}$ такой что $\alpha - x_{n_0} < \epsilon$. Тогда  $\forall  n\ge n_0 ~ \alpha -x_{n} < \epsilon \implies \mid x_n -\alpha \mid < \epsilon x_n \to \alpha$
+	Для убывающей самим надо.
 \end{proof}
 \subsection{Принцип выбора}
 \begin{theorem}
-    Из любой ограниченной последовательность, сходящуюся подпоследовательность.
+	Из любой ограниченной последовательность, сходящуюся подпоследовательность.
 \end{theorem}
 \begin{proof}
-    В полслова. Пусть $x_n$ - ограниченная последовательность. По теореме \ref{1} есть монотонная подпоследовательность, по теореме \ref{weir} нужная подпоследовательность имеет предел.
+	В полслова. Пусть $x_n$ - ограниченная последовательность. По теореме \ref{1} есть монотонная подпоследовательность, по теореме \ref{weir} нужная подпоследовательность имеет предел.
 
-    Другое
+	Другое
 \end{proof}
 \section{Примеры}
 \begin{enumerate}
-    \item 
-        \[
-        x_n = \frac{2n + 5}{3n - 7} = \frac{2 + \frac{5}{n}}{3 - \frac{7}{n}   } \to \frac{2}{3}
-        .\] 
-    \item   
-        \[
-        \lim_{n \to \infty} (\sqrt{n + 1} - \sqrt{n}) = 
-        \lim_{n \to \infty} \frac{(\sqrt{n + 1 } - \sqrt{n})(\sqrt{n + 1} + \sqrt{n})}{\sqrt{n + 1}  + \sqrt{n} } = \lim_{n \to \infty} \frac{1}{\sqrt{n + 1}  + \sqrt{n} } =  0
-        .\]  
-    \item
-        \[
-        \lim_{n \to \infty} (\sqrt{n^2 + n}  - n) = 
-        \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + n}  + n} = 
-        \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}  + 1} = \frac{1}{2}
-        .\] 
-    \item \[
-            x_1 = \sqrt{2} , x_{n + 1} = \sqrt{2 + x_n} 
-    .\] 
-    Пусть $x_n \to a$. 
-    \[
-        x_{n + 1} = \sqrt{2 + x_n} \to a 
-    .\] 
-    \[
-    a  = \sqrt{2 + a} 
-    .\] 
-       \[
-       a = 2
-       .\]  
-       Доказываем существание предела. Последовательность строго возрастает. Ограничена по теореме \ref{weir}.
-       \item
-           \[
-           x_n = \frac{1}{1*2} + \frac{1}{2*3} + \frac{1}{3*4} + \dots + \frac{1}{n(n+1)} = 
-           \frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots + \frac{1}{n} - \frac{1}{n_1}=
-           1 - \frac{1}{n+ 1}
-           .\] 
-    \item
-        $x_n = q^n$, если $\mid q \mid < 1$, то $x_n \to 0$.
-        Нужно доказать, что  $\forall  \epsilon > 0 \exists n_0 \forall  n\ge n_0 \mid x_n \mid < \epsilon$
-        \[
-        \mid q \mid ^n < \epsilon
-        .\] 
-    \[
-        n > \log_{\mid q \mid}  \epsilon
-    .\] 
-\item $(x_n)$ последовательнось положительных  чисел.  Пусть  $\frac{x_{n + 1}}{x_n} \to c < 1$. Тогда $x_n \to 0$ \label{t}
+	\item
+	      \[
+		      x_n = \frac{2n + 5}{3n - 7} = \frac{2 + \frac{5}{n}}{3 - \frac{7}{n}   } \to \frac{2}{3}
+		      .\]
+	\item
+	      \[
+		      \lim_{n \to \infty} (\sqrt{n + 1} - \sqrt{n}) =
+		      \lim_{n \to \infty} \frac{(\sqrt{n + 1 } - \sqrt{n})(\sqrt{n + 1} + \sqrt{n})}{\sqrt{n + 1}  + \sqrt{n} } = \lim_{n \to \infty} \frac{1}{\sqrt{n + 1}  + \sqrt{n} } =  0
+		      .\]
+	\item
+	      \[
+		      \lim_{n \to \infty} (\sqrt{n^2 + n}  - n) =
+		      \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + n}  + n} =
+		      \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}  + 1} = \frac{1}{2}
+		      .\]
+	\item \[
+		      x_1 = \sqrt{2} , x_{n + 1} = \sqrt{2 + x_n}
+		      .\]
+	      Пусть $x_n \to a$.
+	      \[
+		      x_{n + 1} = \sqrt{2 + x_n} \to a
+		      .\]
+	      \[
+		      a  = \sqrt{2 + a}
+		      .\]
+	      \[
+		      a = 2
+		      .\]
+	      Доказываем существание предела. Последовательность строго возрастает. Ограничена по теореме \ref{weir}.
+	\item
+	      \[
+		      x_n = \frac{1}{1*2} + \frac{1}{2*3} + \frac{1}{3*4} + \dots + \frac{1}{n(n+1)} =
+		      \frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots + \frac{1}{n} - \frac{1}{n_1}=
+		      1 - \frac{1}{n+ 1}
+		      .\]
+	\item
+	      $x_n = q^n$, если $\mid q \mid < 1$, то $x_n \to 0$.
+	      Нужно доказать, что  $\forall  \epsilon > 0 \exists n_0 \forall  n\ge n_0 \mid x_n \mid < \epsilon$
+	      \[
+		      \mid q \mid ^n < \epsilon
+		      .\]
+	      \[
+		      n > \log_{\mid q \mid}  \epsilon
+		      .\]
+	\item $(x_n)$ последовательнось положительных  чисел.  Пусть  $\frac{x_{n + 1}}{x_n} \to c < 1$. Тогда $x_n \to 0$ \label{t}
 \end{enumerate}
-    \begin{corollary}
-        \[
-        \mid q \mid < 1 , q^n \to 0
-        .\] 
-        \[
-        x_n = \mid q \mid ^n
-        \frac{x_{n + 1}}{x_n} = \mid q \mid \to \mid q \mid < 1
-        .\] 
-        \[
-        \mid q \mid ^n \to 0
-        .\] 
-    \end{corollary}
-        \begin{corollary}
-            \[
-            x_n = \frac{a^n}{n!}
-            .\] 
-            \[
-                \frac{x_{n + 1}}{x_n} = \frac{a}{n + 1}
-            .\] 
-        \end{corollary}
-        \begin{corollary}
-            $a > 1$
-             \[
-            x_n = \frac{n^k}{a^n}
-            .\] 
-            \[
-                \frac{x_{n+1}}{x_n} = \frac{(1 + \frac{1}{n})^k}{a} < 1
-            .\] 
-        \end{corollary}
-        \begin{proof}\ref{t}
-   \[
-   c < 1
-   .\]  
-   Рассмотри произвольное q, такое что $c < q < 1$. Рассмотрим промежуток  $(-\infty,q)$, это окрстность точки с. Так как отношение стремится к c, то  $\exists  n_0 \forall  n\ge n \frac{x_{n + 1}}{x_n}
-   \in (-\infty,q)$ 
-   \[
-       \frac{x_{n_0 + 1}}{x_{n_0}} < q
-   .\] 
-   \[
-       \frac{x_{n_0 + 2}}{x_{n_0 + 1}} < q
-   .\] 
-   \[
-   \[
-       \frac{x_{n_0 + k}}{x_{n_0 + k + 1}} < q
-   .\] 
-   Перемножили все.
-   \[
-       \frac{x_{n_0 + k}}{x_{n_0}} < q^k
-   .\] 
-   \[
-      0 <  x_{n_0 + k} < x_{n_0} * q^k
-   .\] 
-   По \ref{menti}
-   \[
-       x_{n_0 + k} \to 0
-   .\] 
+\begin{corollary}
+	\[
+		\mid q \mid < 1 , q^n \to 0
+		.\]
+	\[
+		x_n = \mid q \mid ^n
+		\frac{x_{n + 1}}{x_n} = \mid q \mid \to \mid q \mid < 1
+		.\]
+	\[
+		\mid q \mid ^n \to 0
+		.\]
+\end{corollary}
+\begin{corollary}
+	\[
+		x_n = \frac{a^n}{n!}
+		.\]
+	\[
+		\frac{x_{n + 1}}{x_n} = \frac{a}{n + 1}
+		.\]
+\end{corollary}
+\begin{corollary}
+	$a > 1$
+	\[
+		x_n = \frac{n^k}{a^n}
+		.\]
+	\[
+		\frac{x_{n+1}}{x_n} = \frac{(1 + \frac{1}{n})^k}{a} < 1
+		.\]
+\end{corollary}
+\begin{proof}\ref{t}
+	\[
+		c < 1
+		.\]
+	Рассмотри произвольное q, такое что $c < q < 1$. Рассмотрим промежуток  $(-\infty,q)$, это окрстность точки с. Так как отношение стремится к c, то  $\exists  n_0 \forall  n\ge n \frac{x_{n + 1}}{x_n}
+		\in (-\infty,q)$
+	\[
+		\frac{x_{n_0 + 1}}{x_{n_0}} < q
+		.\]
+	\[
+		\frac{x_{n_0 + 2}}{x_{n_0 + 1}} < q
+		.\]
+	\[
+	\[
+		\frac{x_{n_0 + k}}{x_{n_0 + k + 1}} < q
+		.\]
+	Перемножили все.
+	\[
+		\frac{x_{n_0 + k}}{x_{n_0}} < q^k
+		.\]
+	\[
+		0 <  x_{n_0 + k} < x_{n_0} * q^k
+		.\]
+	По \ref{menti}
+	\[
+		x_{n_0 + k} \to 0
+		.\]
 \end{proof}
 \section{Неравенство Бернулли по индукции} \label{ber}
-   \[
-       (1 + a)^n (1 + a) \ge (1 +na)(1 + a)
-   .\] 
-   \[
-   (1 + a)^{n + 1} \ge  1 + a + na + na^2
-   .\] 
-   \[
-   1 + a + na + na^2 > 1 + a + na
-   .\] 
+\[
+	(1 + a)^n (1 + a) \ge (1 +na)(1 + a)
+	.\]
+\[
+	(1 + a)^{n + 1} \ge  1 + a + na + na^2
+	.\]
+\[
+	1 + a + na + na^2 > 1 + a + na
+	.\]
 \section{}
 \begin{theorem}
-    $x_n  = (1 + \frac{1}{n})^n$ имеет предел.
+	$x_n  = (1 + \frac{1}{n})^n$ имеет предел.
 \end{theorem}
 \begin{proof}
-            Докажем, что $( x_n )$ возрастает.
-            \[
-                \frac{x_{n + 1}}{x_n} = \frac{(n + 2)^{n + 1}}{(n + 1)^{n + 1}} \frac{n^n}{(n + 1)^{n}}=
-                \frac{(n^2 + 2n)^{n + 1}}{( (n + 1)^2 )^{n + 1}} * \frac{n + 1}{n}
-            .\] 
-            \[
-                (\frac{n^2 + 2n}{n^2 + 2n + 1})^{n + 1} * \frac{n + 1}{n} =
-                (1 - \frac{1}{n^2 + 2n + 1}) * \frac{n+1}{n} > 1 - (n + 1) \frac{1}{n^2+2n +1} * \frac{n+1}{n}
-            .\] 
-            \[
-            = ( 1 - \frac{1}{n + 1}) * \frac{n + 1}{n} = \frac{n}{n+1} * \frac{n + 1}{n} = 1
-            .\] 
-            Докажем, что последовательность ограниченна сверху.
-            \[
-                x_n = (1 + \frac{1}{n})^n = \sum_{k=0}^{n} C_{n}^k *1 + \frac{1}{n}^k =
-                \sum_{k = 0}^{n} \frac{n (n - 1) (n -2) \dots (n - (n - k))}{n^k} * \frac{1}{k!}
-            .\] 
-            \[
-                \sum_{k=0}^{n} (1 - \frac{1}{n}) (1 - \frac{2}{n}) \dots * (1-  \frac{k - 1}{n})*\frac{1}{k!} < \sum_{k = 1}^{n} \frac{1}{k}
-            .\] 
-            \[
-            = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} \dots \frac{1}{n!} <
-            .\] 
-            \[
-                < 1 + (1 + \frac{1}{2} + (\frac{1}{2})^2 + \dots + (\frac{1}{n})^{n -1}) < 3
-            .\] 
-            По \ref{weir} последовательность имеет предел, назовем его $e$.
+	Докажем, что $( x_n )$ возрастает.
+	\[
+		\frac{x_{n + 1}}{x_n} = \frac{(n + 2)^{n + 1}}{(n + 1)^{n + 1}} \frac{n^n}{(n + 1)^{n}}=
+		\frac{(n^2 + 2n)^{n + 1}}{( (n + 1)^2 )^{n + 1}} * \frac{n + 1}{n}
+		.\]
+	\[
+		(\frac{n^2 + 2n}{n^2 + 2n + 1})^{n + 1} * \frac{n + 1}{n} =
+		(1 - \frac{1}{n^2 + 2n + 1}) * \frac{n+1}{n} > 1 - (n + 1) \frac{1}{n^2+2n +1} * \frac{n+1}{n}
+		.\]
+	\[
+		= ( 1 - \frac{1}{n + 1}) * \frac{n + 1}{n} = \frac{n}{n+1} * \frac{n + 1}{n} = 1
+		.\]
+	Докажем, что последовательность ограниченна сверху.
+	\[
+		x_n = (1 + \frac{1}{n})^n = \sum_{k=0}^{n} C_{n}^k *1 + \frac{1}{n}^k =
+		\sum_{k = 0}^{n} \frac{n (n - 1) (n -2) \dots (n - (n - k))}{n^k} * \frac{1}{k!}
+		.\]
+	\[
+		\sum_{k=0}^{n} (1 - \frac{1}{n}) (1 - \frac{2}{n}) \dots * (1-  \frac{k - 1}{n})*\frac{1}{k!} < \sum_{k = 1}^{n} \frac{1}{k}
+		.\]
+	\[
+		= 1 + 1 + \frac{1}{2!} + \frac{1}{3!} \dots \frac{1}{n!} <
+		.\]
+	\[
+		< 1 + (1 + \frac{1}{2} + (\frac{1}{2})^2 + \dots + (\frac{1}{n})^{n -1}) < 3
+		.\]
+	По \ref{weir} последовательность имеет предел, назовем его $e$.
 \end{proof}
 \section{} \label{h1}
 \[
-x_n \to b
-.\] 
+	x_n \to b
+	.\]
 \[
-a > 0, a \neq 1
-.\] 
+	a > 0, a \neq 1
+	.\]
 \[
-    a^{x_n} \to a^b
-.\] 
+	a^{x_n} \to a^b
+	.\]
 \section{} \label{h2}
 \[
-x_n > 0
-.\] 
+	x_n > 0
+	.\]
 \[
-x_n \to b > 0
-.\] 
+	x_n \to b > 0
+	.\]
 \[
-    \log_a{x_n} \to \log_a{b}
-.\] 
+	\log_a{x_n} \to \log_a{b}
+	.\]
 \section{}
 \[
-\alpha > 0
-.\] 
+	\alpha > 0
+	.\]
 \[
-    x_n \to b \implies x_{n}^{\alpha} \to b^{\alpha}
-.\] 
+	x_n \to b \implies x_{n}^{\alpha} \to b^{\alpha}
+	.\]
 \section{}
 \begin{theorem} \label{sin}
-    \[
-        \mid \sin{x} \mid = \mid x \mid
-    .\] 
+	\[
+		\mid \sin{x} \mid = \mid x \mid
+		.\]
 \end{theorem}
 \begin{proof}
-    При $0 < x < \frac{\pi}{2}$
-    Картинку потом нарисую.
+	При $0 < x < \frac{\pi}{2}$
+	Картинку потом нарисую.
 \end{proof}
 \section{}
 \begin{theorem}
-    \[
-        x_n \to b \implies \sin{x_n} \to \sin{a}
-    .\] 
+	\[
+		x_n \to b \implies \sin{x_n} \to \sin{a}
+		.\]
 \end{theorem}
 \begin{proof}
-    \[
-        \sin{x_n} - \sin{a} \to 0
-    .\] 
-    \[
-        \mid \sin{x_n} - \sin{a} \mid = \mid \sin{\frac{x_n - a}{2}} \cos{\frac{x_n+a}{2}} \mid \le 
-        2 \mid \frac{x_n - a}{2} \mid = |x_n - a \mid
-    .\] 
-    \[
-        0 \le \mid \sin{x_n} - \sin{a} \mid \le  \mid x_n -a \mid
-    .\] 
-    По \ref{menti} $\sin{x_n} \to \sin{a}$
+	\[
+		\sin{x_n} - \sin{a} \to 0
+		.\]
+	\[
+		\mid \sin{x_n} - \sin{a} \mid = \mid \sin{\frac{x_n - a}{2}} \cos{\frac{x_n+a}{2}} \mid \le
+		2 \mid \frac{x_n - a}{2} \mid = |x_n - a \mid
+		.\]
+	\[
+		0 \le \mid \sin{x_n} - \sin{a} \mid \le  \mid x_n -a \mid
+		.\]
+	По \ref{menti} $\sin{x_n} \to \sin{a}$
 \end{proof}
 \section{Задачка}
 \[
-\lim_{n \to \infty} (\frac{n + 3}{n + 1})^n =
-\lim_{n \to \infty} (1 - \frac{2}{n + 1})^n = 
-\lim_{n \to \infty} ((1 + \frac{2}{n + 1})^{\frac{n + 1}{2}})^{\frac{2n}{n + 1}}
-.\] 
+	\lim_{n \to \infty} (\frac{n + 3}{n + 1})^n =
+	\lim_{n \to \infty} (1 - \frac{2}{n + 1})^n =
+	\lim_{n \to \infty} ((1 + \frac{2}{n + 1})^{\frac{n + 1}{2}})^{\frac{2n}{n + 1}}
+	.\]
 Тупо 1 добавили и вычли.
 \section{}
 \[
-    (1 + \frac{1}{n})^n \to e
-.\] 
+	(1 + \frac{1}{n})^n \to e
+	.\]
 \[
-x_n = \frac{1}{n} \to 0
-.\] 
+	x_n = \frac{1}{n} \to 0
+	.\]
 \[
-    (1 + x_n)^{\frac{1}{x_n}} \to e
-.\] 
+	(1 + x_n)^{\frac{1}{x_n}} \to e
+	.\]
 \section{}
 \[
-    \lim_{n \to \infty} \frac{\log_{a}{n}}{n^k} = 0
-.\] 
+	\lim_{n \to \infty} \frac{\log_{a}{n}}{n^k} = 0
+	.\]
 \section{Бесконечно большие последовательности}
 Попробуем дать точный смысл записи $x_n \to + \infty, x_n \to -\infty,x_n \to \infty$.
 \subsection{}
 \[
-x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 x_n > C
-.\] 
+	x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 x_n > C
+	.\]
 \subsection{}
 \[
-x_n \to -\infty \iff \forall C ~ \exists  ~ n_0 ~ \forall n > n_0 ~ x_n < C
-.\] 
+	x_n \to -\infty \iff \forall C ~ \exists  ~ n_0 ~ \forall n > n_0 ~ x_n < C
+	.\]
 \subsection{}
 \[
-x_n \to \infty \iff \mid x_n \mid \to + \infty
-.\] 
+	x_n \to \infty \iff \mid x_n \mid \to + \infty
+	.\]
 \subsection{}
 \begin{theorem}
-    Пусть $(x_n)$ такова, что  $\forall x_n \neq 0$, тогда $(x_n)$ - бесконечно большая
-     $\iff \frac{1}{x_n}$ бесконечно малая.
+	Пусть $(x_n)$ такова, что  $\forall x_n \neq 0$, тогда $(x_n)$ - бесконечно большая
+	$\iff \frac{1}{x_n}$ бесконечно малая.
 \end{theorem}
 \begin{proof}
-\[
-x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 \mid x_n \mid > C
-.\] 
-\[
-\frac{1}{x_n} \to 0  \iff \forall  \epsilon \exists  n_0 ~ \forall n \ge  n_0 \frac{1}{\mid x_n \mid} <\epsilon
-.\] 
-\[
-\mid x_n \mid > \frac{1}{\epsilon}
-.\] 
+	\[
+		x_n \to +\infty \iff \e \forall C ~ \exists n_0 ~ \forall n \ge  n_0 \mid x_n \mid > C
+		.\]
+	\[
+		\frac{1}{x_n} \to 0  \iff \forall  \epsilon \exists  n_0 ~ \forall n \ge  n_0 \frac{1}{\mid x_n \mid} <\epsilon
+		.\]
+	\[
+		\mid x_n \mid > \frac{1}{\epsilon}
+		.\]
 \end{proof}
 \section{Расширеннная прямая}
 $\overline{\mathbb{R}}$ - это $\mathbb{R} \cup \{+\infty,-\infty\}$
 \[
--\infty < \infty
-.\] 
+	-\infty < \infty
+	.\]
 \[
-a \in \mathbb{R} , ~ -\infty < a < +\infty
-.\] 
+	a \in \mathbb{R} , ~ -\infty < a < +\infty
+	.\]
 \section{Предел функций.}
 \subsection{Предельная точка}
 $X \subset \mathbb{R}, a \in X$. Точка а называется предельной точкой множества X, если в любой окрестности точки а, есть хотя бы одно число из X, отличное от а.
 \subsection{}
 \begin{theorem}
-    a - предельная точка множества D $\iff$ Если существует  $(x_n)$ точек множества D
-    отличных от а, такая что $x_n \to a$
+	a - предельная точка множества D $\iff$ Если существует  $(x_n)$ точек множества D
+	отличных от а, такая что $x_n \to a$
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}
-        \item Пусть а предельная точка D.
-            Смотрим промежуток $(a-1;a+1)$. Рассмотрим  $x_1 \in (a-1;a+1),x_1 \neq a, x_1 \in D$. $
-            x_2 \in (a - \frac{1}{2},a + \frac{1}{2}), x_2 \neq a , x_2 \in D$. И так далее, мы построили последовательность такую, что $\forall x_n \in D,x x_n \neq a, a - \frac{1}{n} < x_n < a + \frac{1}{n}$. По \ref{menti} $x_n \to a$
-            \item
-                Пусть  $(x_n)$ такова, что  $x_n \in D,x_n \neq a, x_n \to a$. Взяли произвольну окрестностность а $\exists n_0  ~ x_{n_0} \in U(a)$
-    \end{enumerate}
+	\begin{enumerate}
+		\item Пусть а предельная точка D.
+		      Смотрим промежуток $(a-1;a+1)$. Рассмотрим  $x_1 \in (a-1;a+1),x_1 \neq a, x_1 \in D$. $
+			      x_2 \in (a - \frac{1}{2},a + \frac{1}{2}), x_2 \neq a , x_2 \in D$. И так далее, мы построили последовательность такую, что $\forall x_n \in D,x x_n \neq a, a - \frac{1}{n} < x_n < a + \frac{1}{n}$. По \ref{menti} $x_n \to a$
+		\item
+		      Пусть  $(x_n)$ такова, что  $x_n \in D,x_n \neq a, x_n \to a$. Взяли произвольну окрестностность а $\exists n_0  ~ x_{n_0} \in U(a)$
+	\end{enumerate}
 \end{proof}
 \subsubsection{Пример}
 Возьмем $D = [0;1)$. Найдем все его предельные точки. Это все точки из  $[0;1)$
@@ -570,34 +571,34 @@ $X \subset \mathbb{R}, a \in X$. Точка а называется предел
 Пусть $f : D \to \mathbb{R}$, а - предельная точка множества D. Число A называется пределом функции f в точке a,
 если $\forall (x_n)$
 \[
-\begin{cases}
-    \forall x_n \neq a\\
-    \forall  x_n \in D\\
-    x_n \to a\\
-\end{cases}
-\implies f(x_n) \to A
-.\] 
+	\begin{cases}
+		\forall x_n \neq a \\
+		\forall  x_n \in D \\
+		x_n \to a          \\
+	\end{cases}
+	\implies f(x_n) \to A
+	.\]
 \subsection{Запись предела функции}
 \[
-\lim_{x \to a} f(x) = A
-.\] 
+	\lim_{x \to a} f(x) = A
+	.\]
 \subsection{}
 Пусть $\lim_{x \to a} f(x) = A \land \lim_{x \to a} f(x) = B $
 \subsection{}
 \begin{theorem}
-    $f : D \to \mathbb{R}$,a предельная точка множества D. U - окрестность точки а, тогда предел
-    функции в точке существует  $\iff$ существует предел на сужении  $D \cap U$
+	$f : D \to \mathbb{R}$,a предельная точка множества D. U - окрестность точки а, тогда предел
+	функции в точке существует  $\iff$ существует предел на сужении  $D \cap U$
 \end{theorem}
 \subsection{Теорема о предельном переходе в неравенстве}
 \begin{theorem}
-    $f,g : D \to \mathbb{R}$, а предельная точка множества D.
-    \[
-    \forall  x \in D f(x) \le  f(x) 
-    .\] 
-    \[
-    \exists \lim_{x \to a} f(x), \lim_{n \to a} g(x)
-    .\] 
-    Тогда $\lim_{x \to a} f(x) \le  \lim_{x \to a} g(x)$
+	$f,g : D \to \mathbb{R}$, а предельная точка множества D.
+	\[
+		\forall  x \in D f(x) \le  f(x)
+		.\]
+	\[
+		\exists \lim_{x \to a} f(x), \lim_{n \to a} g(x)
+		.\]
+	Тогда $\lim_{x \to a} f(x) \le  \lim_{x \to a} g(x)$
 \end{theorem}
 \subsection{}\label{menti2}
 Теорема \ref{menti}, но про пределы функции.
@@ -606,105 +607,236 @@ $X \subset \mathbb{R}, a \in X$. Точка а называется предел
 Пусть $\lim_{x \to a} f(x) = A, \lim_{x \to a} g(x) = b $
 Тогда
 \begin{enumerate}
-    \item $\lim_{x \to a} f(x) + g(x) = A + B$
-    \item $\lim_{x \to a} f(x) * g(x) = A*B$
-    \item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}, g(x) \neq 0, B \neq 0$
+	\item $\lim_{x \to a} f(x) + g(x) = A + B$
+	\item $\lim_{x \to a} f(x) * g(x) = A*B$
+	\item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}, g(x) \neq 0, B \neq 0$
 \end{enumerate}
 \section{Композиция функций для вещественных функций}
 \[
-f : D \to \mathbb{R}
-.\] 
+	f : D \to \mathbb{R}
+	.\]
 \[
-g : E \to \mathbb{R}
-.\] 
+	g : E \to \mathbb{R}
+	.\]
 \[
-f(D) \subset E
-.\] 
+	f(D) \subset E
+	.\]
 \[
-g \circ f = g(f(x))
-.\] 
+	g \circ f = g(f(x))
+	.\]
 \subsection{Примеры}
 \[
-    F(x) = \sin^2{x}
-.\] 
+	F(x) = \sin^2{x}
+	.\]
 \[
-    f(x) = \sin{x}
-.\] 
+	f(x) = \sin{x}
+	.\]
 \[
-g(x) = x^2
-.\] 
+	g(x) = x^2
+	.\]
 \[
-g \circ f = F
-.\] 
+	g \circ f = F
+	.\]
 \[
-f \circ g = \sin x^2
-.\] 
-\section{Предел композиции.}
+	f \circ g = \sin x^2
+	.\]
+\section{Предел композиции.}\label{compose}
 \begin{theorem}
-    $f : D \to \mathbb{R}$, $g : E \to \mathbb{R}$. Пусть $f(D) \subset E$. 
-    $а$ пределеьная точка множества $D$  и  $\lim_{x \to a} f(x) = b$. Пусть b предельная точка множества $E$ и $\lim_{t \to b} g(t) = c$. Пусть выполняется
-    одно из двух условий.
-    \begin{enumerate}
-        \item $\exists  U$ точки $a$, такая что $\forall  x \neq a \in U \cap D, f(x) \neq b$
-        \item $\lim_{t \to b} g(t) = g(b) $.
-    \end{enumerate}
-    Тогда $\lim_{x \to a} g(f(x)) =  c$
+	$f : D \to \mathbb{R}$, $g : E \to \mathbb{R}$. Пусть $f(D) \subset E$.
+	$а$ пределеьная точка множества $D$  и  $\lim_{x \to a} f(x) = b$. Пусть b предельная точка множества $E$ и $\lim_{t \to b} g(t) = c$. Пусть выполняется
+	одно из двух условий.
+	\begin{enumerate}
+		\item $\exists  U$ точки $a$, такая что $\forall  x \neq a \in U \cap D, f(x) \neq b$
+		\item $\lim_{t \to b} g(t) = g(b) $.
+	\end{enumerate}
+	Тогда $\lim_{x \to a} g(f(x)) =  c$
 \end{theorem}
 \begin{proof}
-    Пусть 1 верно, мы хотим доказать, что $\lim_{x \to a} g(f(x)) = c$
-    Возьмем $\forall  (x_n)$ такую что $x_n \in D, x_a \neq a x_n \to a$ 
-    \[
-    t_n = f(x_n)
-    .\] 
-    \[
-    t_n \to b
-    .\] 
-    Нужно проверить, что $g(f(x_n)) \to c$.
-    \[
-    \dots
-    .\] 
+	Пусть 1 верно, мы хотим доказать, что $\lim_{x \to a} g(f(x)) = c$
+	Возьмем $\forall  (x_n)$ такую что $x_n \in D, x_a \neq a x_n \to a$
+	\[
+		t_n = f(x_n)
+		.\]
+	\[
+		t_n \to b
+		.\]
+	Нужно проверить, что $g(f(x_n)) \to c$.
+	\[
+		\dots
+		.\]
 \end{proof}
 \subsection{Пример}
 \[
-    \lim_{x \to 0} \frac{\sin{3x}}{x}
-.\] 
+	\lim_{x \to 0} \frac{\sin{3x}}{x}
+	.\]
 \[
-3x = t 
-.\] 
+	3x = t
+	.\]
 \[
-    \frac{\sin{x}}{x} = \frac{\sin{t}}{t/3} = 3 \frac{\sin{t}}{t}
-.\] 
+	\frac{\sin{x}}{x} = \frac{\sin{t}}{t/3} = 3 \frac{\sin{t}}{t}
+	.\]
 \section{Одностронние  пределы.}
 \begin{theorem}
-    D - промежуток, $f : D \to \mathbb{R}$, а предельная точка.
-    $\lim_{x \to a} f(x)$ сущесвтует $\iff$  оба односторонних предела существуют и они равны друг другу.
+	D - промежуток, $f : D \to \mathbb{R}$, а предельная точка.
+	$\lim_{x \to a} f(x)$ сущесвтует $\iff$  оба односторонних предела существуют и они равны друг другу.
 \end{theorem}
 \section{Вычисление пределов}
 \subsection{}
 $\lim_{x \to c} a^x = a^c$
 \begin{proof}
-   \begin{enumerate}
-       \item $a>1$
-           \[
-               a^x - a^c = a^c(a^{x - c} - 1)
-           .\] 
-           Докажем, что $a^{x - c} - 1 \to 0, x \to c$
-            \[
-           t = x - c
-           .\] 
-           \[
-           \lim_{t \to 0} (a^t - 1) = 0 ?
-           .\] 
-           Докажем, что $a^{t_n} - 1 \to 0$
-           \[
-               \forall \epsilon > 0 \exists o \forall n \ge n_0 1 - \epsilon < a^{t_n} < 1 + \epsilon
-           .\] 
-           \[
-               \log_a{( 1 - \epsilon )} < t_n < \log_a{( 1 + \epsilon )}
-           .\] 
-           Расссмотрим промежуток $(\log_a{( 1 - \epsilon )};\log_a{( 1 + \epsilon )})$
-   \end{enumerate} 
-   \item
-       $\lim_{x \to c} \log_a{x} = \log_a{c}$
+	\begin{enumerate}
+		\item $a>1$
+		      \[
+			      a^x - a^c = a^c(a^{x - c} - 1)
+			      .\]
+		      Докажем, что $a^{x - c} - 1 \to 0, x \to c$
+		      \[
+			      t = x - c
+			      .\]
+		      \[
+			      \lim_{t \to 0} (a^t - 1) = 0 ?
+			      .\]
+		      Докажем, что $a^{t_n} - 1 \to 0$
+		      \[
+			      \forall \epsilon > 0 \exists o \forall n \ge n_0 1 - \epsilon < a^{t_n} < 1 + \epsilon
+			      .\]
+		      \[
+			      \log_a{( 1 - \epsilon )} < t_n < \log_a{( 1 + \epsilon )}
+			      .\]
+		      Расссмотрим промежуток $(\log_a{( 1 - \epsilon )};\log_a{( 1 + \epsilon )})$
+	\end{enumerate}
 \end{proof}
-\end{document} 
+\begin{theorem}
+	$\lim_{x \to c} \log_a{x} = \log_a{c}$
+\end{theorem}
+\begin{theorem}
+	$\lim_{x \to c} x^a = c^a$
+\end{theorem}
+\begin{proof}
+	\[
+		x^a = e^{\ln{x^a}}= e^{a\ln{x}}
+		.\]
+	\[
+		\lim_{x \to c} e^{a\ln{x}}
+		.\]
+	\[
+		g(x) = e^x
+		.\]
+	\[
+		f(x) = a\ln{x}
+		.\]
+	По теореме \ref{compose} $\lim_{x \to c} f(x) = a \ln{c}$. $\lim_{x \to a\ln{c}} g(x) = g(a\ln{c}) = e^{a\ln{c}} = c^a$
+\end{proof}
+\begin{theorem}
+	$\lim_{x \to 0} (1 + x)^{\frac{1}{x}}  = e$
+\end{theorem}
+\begin{proof}
+	$\lim_{x \to 0^+} (1 + x)^{\frac{1}{x}}$
+	\[
+		x_n = \frac{1}{t_n}, t_n \to +\infty
+		.\]
+	\[
+		(1 + \frac{1}{t_n})^{t_n} \to e ??
+		.\]
+	Докажем, что это справедливо для последовательностей, где $t_n состоит из натуральных чисел$, по \ref{sd}. Теперь в общем случае.
+
+	$(t_n)$ - любая последовательность  $\to +\infty$. Нужно доказать, что  $(1 + \frac{1}{t_n})^{t_n} \to e$
+	\[
+		[t_n] \le t_n <  [t_n] +1
+		.\]
+	\[
+		\frac{1}{[t_n] + 1} < \frac{1}{t_n} \le  1\frac{1}{[t_n]}
+		.\]
+	\[
+		1 + \frac{1}{[t_n] + 1} < 1 + \frac{1}{t_n} \le  1 + \frac{1}{[t_n]}
+		.\]
+	\[
+		( 1 + \frac{1}{[t_n] + 1} )^{t_n}< 1  + ( \frac{1}{t_n} )^{t_n} \le  (1 +  \frac{1}{[t_n]} )^{t_n}
+		.\]
+	Докажем, что левый предел тоже $e$.
+	\[
+		\forall  (x_n) ~\text{Такой что} ~
+		\begin{cases}
+			x_n > -1 \\
+			x_n < 0  \\
+			x_n \to 0
+		\end{cases}
+		.\]
+	Рассмотрим последовательность $t_n = -\frac{1}{x_n} > 0, t_n \to 0$
+	\[
+		(1 + x_n)^{\frac{1}{x_n}} = (1 - \frac{1}{t_n})^{-t_n} =
+		(\frac{t_n}{t_n -1} )^{t_n} = (1 + \frac{1}{t_n -1 })^{t_n - 1} (1 +  \frac{1}{t_n - 1})
+		.\]
+\end{proof}
+\begin{lemma} \label{sd}
+	$f : (a,+\infty] \to \mathbb{R}$. Пусть $f(n) \to A$. Тогда для $\forall $ последовательность натуральных чисел $t_n \to + \infty$ выполняется  $f(t_n) \to A$.
+\end{lemma}
+\begin{proof}
+	$\forall  \epsilon > 0 $ неравенство $|f(n) = a| < \epsilon$ для почти всех натуральных чисел. Тогда
+	$\forall \epsilon > 0 \mid f(t_n) \to A \mid$
+
+\end{proof}
+\begin{theorem}
+	$\lim_{x \to 0} \frac{\ln{( 1 + x )}}{x} = 1$
+\end{theorem}
+\begin{proof}
+	\[
+		\frac{\ln(1 + x)}{x} = \ln{(1 + x)^{\frac{1}{x}}}
+		.\]
+\end{proof}
+\begin{theorem}
+	$\lim_{x \to 0} \frac{a^x - 1}{x} = \ln{a}$
+\end{theorem}
+\begin{proof}
+	\[
+		t = a^x + 1
+		.\]
+	\[
+		x = \log_a{( 1 + t )}
+		.\]
+	\[
+		\frac{a^x - 1 }{x} = \frac{t}{\log_a{1 + t}}
+		.\]
+\end{proof}
+\begin{theorem}
+	$\lim_{x \to 0} \frac{(1 + x)^{\alpha} - 1}{x}$
+\end{theorem}
+\begin{proof}
+	\[
+		(1 + x)^{\alpha} - 1 = t
+		.\]
+	\[
+		\frac{t}{x} = \frac{t}{\ln{( 1 + t )}} * \frac{\ln{(1 + t)}}{x} = \alpha
+		.\]
+\end{proof}
+\begin{theorem}
+	$\lim_{x \to a} \sin{x} = \sin{a}$
+\end{theorem}
+\begin{theorem}
+	$\lim_{x \to 0} \frac{\sin{x}}{x} = 1$
+\end{theorem}
+\begin{proof}
+	Пусть $0 < x < \frac{\pi}{2}$
+    \[
+        \sin{x} < x <  \tg{x}
+    .\] 
+    \[
+        1 < \frac{x}{\sin{x}} < \frac{1}{\cos{x}}
+    .\] 
+\end{proof}
+\section{Сравнение роста функций}
+\subsection{}
+\begin{theorem}
+    \[
+        \lim_{x \to +\infty} \frac{\log_a{x}}{x^\alpha} = 0
+    .\] 
+    \[
+        a > 1, \alpha > 0
+    .\] 
+\end{theorem}
+\begin{proof}
+Досточно доказать для натурального логорифма, так как $\log_a{x} = \frac{\ln{x}}{\ln{a}}$
+
+Мы знаем, что $\lim_{n \to \infty} \frac{\log_a{n}}{n^\alpha} = 0$
+\end{proof}
+\end{document}
