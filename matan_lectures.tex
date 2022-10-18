@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \newtheorem{theorem}{Теорема}
+\newtheorem{definition}{Определение}
 \newtheorem{corollary}{Следствие}[theorem]
 \newtheorem{lemma}[theorem]{Лемма}
 \hypersetup{ colorlinks=true,
@@ -168,7 +169,7 @@ $x_n$ Ограничена сверху.
 \subsubsection{}
 \begin{theorem}
 	$$(x_n) , a \in \mathbb{R}$$. Рассмотри последовательность $\alpha_n = x_n - a$. Тогда $x_n \to a$
-	\leftrightarrow (\alpha_n)$ бесконечно малая.
+	$\leftrightarrow (\alpha_n)$ бесконечно малая.
 \end{theorem}
 \begin{proof}
 	\[
@@ -839,4 +840,22 @@ $\lim_{x \to c} a^x = a^c$
 
 Мы знаем, что $\lim_{n \to \infty} \frac{\log_a{n}}{n^\alpha} = 0$
 \end{proof}
+\begin{theorem}
+    $\mid a \mid < 1, \lim_{x \to + \infty}a^x = 0 $
+\end{theorem}
+\section{Другое определение предела.}
+\begin{definition}
+$f : D \to \mathbb{R}$, a предельная точка множества D. 
+A называется пределом f точке a, если 
+ \[
+\forall \epsilon > 0 | f(x) - A | < \epsilon
+.\] 
+Выполняется в некоторой проколотой окрестности
+точки а (т.е открестноть точки а без а).
+\end{definition}
+\subsection{Примеры употребления термина "вблизи"}
+\subsubsection{}
+Неравенство $x < 1$ выполняется вблизи 0.
+\subsubsection{}
+Неравенство $\frac{x^2}{x} < 1$ выполняется вблизи 0
 \end{document}
