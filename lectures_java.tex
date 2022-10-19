@@ -7,6 +7,7 @@
 \usepackage{mathtools}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{geometry}
 \newtheorem{task}{Задача}
 \hypersetup{
 	colorlinks=true,
@@ -387,13 +388,13 @@ for (int i = 0; i < n - 1;i++){
 out.println(max);
     \end{lstlisting}
 \begin{task}
-    Максимум от функции. Элемент квадрат, которого максимален.
+	Максимум от функции. Элемент квадрат, которого максимален.
 \end{task}
 \begin{lstlisting}[language=Java] 
 if (a * a > max*max) 
-\end{lstlisting} 
+\end{lstlisting}
 \begin{task}
-    Максимум с условием. Максимальный четный элемент. Нельзя первый элемент в качестве начального элемента.
+	Максимум с условием. Максимальный четный элемент. Нельзя первый элемент в качестве начального элемента.
 \end{task}
 \subsubsection{}
 Если известно ограничение на диапозон значений элементов. Тогда все просто, максимум равен минимуму диапазона+1 до цикла.
@@ -401,7 +402,7 @@ if (a * a > max*max)
 \subsubsection{}
 Ограничения нет на диапазон. Сначала нужно найти первый элемент удовлетворяющий условию и его взять в качестве начального значения. Потом остальные сравниваем как обычно.
 \begin{task}
-    Найти максимальный четный элемент.
+	Найти максимальный четный элемент.
 \end{task}
 \begin{lstlisting}[language=Java] 
 int max = 1;
@@ -417,7 +418,7 @@ if (max == 1)
     out.println("NO");
 else
     out.println(max);
-\end{lstlisting} 
+\end{lstlisting}
 \subsection{Цикл с условием}
 \subsubsection{Цикл с предусловием.}
 Сначала проверяет условие, потом делает тело цикла или выходит из цикла, потом проверяет условие.
@@ -425,17 +426,17 @@ else
 while (cond) {
     body;
 }
-\end{lstlisting} 
+\end{lstlisting}
 \subsubsection{Цикл с предусловием}
 Сначала делает тело цикла, потом проверяет условие.
 \begin{lstlisting}[language=Java] 
 do {
     body;
 }while(cond);
-\end{lstlisting} 
+\end{lstlisting}
 \subsection{Примеры}
 \begin{task}
-    Дана последовательность целых чисел, которая заканчивается числом 100. Найти сумму чисел, больше 20.
+	Дана последовательность целых чисел, которая заканчивается числом 100. Найти сумму чисел, больше 20.
 \end{task}
 \subsubsection{Последний элемент не нужно учитывать.}
 \begin{lstlisting}[language=Java] 
@@ -448,7 +449,7 @@ while(a != 100){
     a = in.nextInt();
 }
 out.println(sum);
-\end{lstlisting} 
+\end{lstlisting}
 \begin{lstlisting}[language=Java] 
 int sum = 0; 
 int a = in.nextInt();
@@ -461,7 +462,7 @@ do {
 }while(a != 100);
  }
  out.println(sum);
-\end{lstlisting} 
+\end{lstlisting}
 \subsubsection{Последний элемент нужно учитывать}
 \begin{lstlisting}[language=Java] 
 int sum = 0;
@@ -472,7 +473,7 @@ do {
         sum += a;
     }
 }while(a != 100);
-\end{lstlisting} 
+\end{lstlisting}
 \begin{lstlisting}[language=Java] 
 int a = 1;
 int sum = 0;
@@ -482,10 +483,10 @@ while (a != 100){
         sum +=a;
     }
 } 
-\end{lstlisting} 
+\end{lstlisting}
 \subsubsection{Еще пример}
 \begin{task}
-    Дано натуральное число x, найти количество единиц в троичном представлении числа.
+	Дано натуральное число x, найти количество единиц в троичном представлении числа.
 \end{task}
 \begin{lstlisting}[language=Java] 
 int x = in.nextInt();
@@ -496,5 +497,109 @@ while (x != 0){
     }
     x /= 3;
 }
+\end{lstlisting}
+\section*{13.10.22}
+\section{Массивы.}
+Массивы - совокупность однотипных данных, имеющих общее имя, при этом каждый элемент имеет
+уникальный номер, который называется индексом.
+Данные в массиве надо обрабатывать с помошью цикла.
+\subsection{Описание и создание массива}
+\subsubsection{Описание}
+\begin{lstlisting}[language=Java] 
+DataType [] nameArray; 
+\end{lstlisting}
+\begin{lstlisting}[language=Java] 
+int [] a; 
+\end{lstlisting}
+\subsubsection{Создание}
+\begin{lstlisting}[language=Java] 
+nameArray = new DataType[length]; 
+\end{lstlisting}
+\begin{lstlisting}[language=Java] 
+a = new int[10] 
+\end{lstlisting}
+\subsubsection{Прошлые действия в одном}
+\begin{lstlisting}[language=Java] 
+int []a = new int[10]; 
+\end{lstlisting}
+\subsection{Заполнение массива.}
+Обнулим массив.
+\begin{lstlisting}[language=Java] 
+for(int i = 0; i < a.length;i++){
+    a[i] = 0;
+}
 \end{lstlisting} 
+Заполним элементами последовательности.(2,4,6,8)
+\begin{lstlisting}[language=Java] 
+int[0] = 2;
+for(int i = 1; i < a.length;i ++){
+    a[i] = a[i - 1] + 2;
+} 
+\end{lstlisting} 
+Ввод элементов массива с клавиатуры.
+\begin{lstlisting}[language=Java] 
+for (int i = 0; i < a.length; i++){
+    a[i] = in.nextInt();
+}
+\end{lstlisting} 
+Если в квадратых скобках пишем что-то кроме i, то проверяем не вышли ли из границ массива.
+\subsection{Вывод массива на экран.}
+\begin{lstlisting}[language=Java] 
+for (int i = 0; i < a.length ; i++){
+    out.print(a[i] + " ");
+} 
+out.println();
+\end{lstlisting} 
+\subsection{Подсчет элементов}
+Сумма отрицательных элементов
+\begin{lstlisting}[language=Java] 
+int sum = 0;
+for (int i = 0; i < a.length; i++){
+    if (a[i] < 0){
+        sum += a[i];
+    }
+}
+out.println(sum);
+\end{lstlisting} 
+\section{Перестановки}
+Пусть есть две ячейки памяти, надо поменять их местами.
+\begin{lstlisting}[language=Java] 
+int x = 10;
+int y = 5;
+int z =x;
+x = y;
+y = z;
+\end{lstlisting} 
+\section{Поиск минимума и максимума.}
+Можно не хранить значение переменной max без условия.
+\begin{lstlisting}[language=Java] 
+int imax = 0;
+for (int i =1 ;i < a.length;i++){
+    if (a[i] > a[imax])
+        imax = i;
+}
+\end{lstlisting} 
+С условием. Есть тонкости
+\begin{enumerate}
+    \item Нельзя 0 элемент считать значением максимума
+    \item Если известно ограниченние на диапозон, в качестве начального значения берем число,
+        выходящее за диапозон.
+    \item Если неизвестно, то надо найти первый подходящий элемент.
+\end{enumerate}
+\section{Заполнение массива случайными числами}
+\begin{enumerate}
+    \item Подключаем библиотеку Random
+        \begin{lstlisting}[language=Java] 
+import java.util.Random 
+        \end{lstlisting} 
+        \item Создать объект класса Random
+\begin{lstlisting}[language=Java] 
+Random rnd = new Random(0);
+\end{lstlisting} 
+\item Используем этот объект
+\begin{lstlisting}[language=Java] 
+rnd.nextInt(k); 
+\end{lstlisting} 
+Выдает случайное целове число от 0 до k-1.
+\end{enumerate}
 \end{document}
