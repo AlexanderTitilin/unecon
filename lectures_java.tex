@@ -32,8 +32,6 @@
 	breakatwhitespace=false,
 	breaklines=true,
 	captionpos=b,
-	numbers=left,
-	numbersep=5pt,
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
@@ -602,4 +600,67 @@ rnd.nextInt(k);
 \end{lstlisting} 
 Выдает случайное целове число от 0 до k-1.
 \end{enumerate}
+\section{20.10.20}
+\subsection{Однопроходные алгоритмы.}
+Перед тем, как сохранить входные (и текущие) данные в массив, нужно ответить на вопрос "нужно ли проходить по данным больше двух раз". Если нужно, то храниим, иначе не храним.
+\subsection{Обработка строк}
+Строка(String) - некоторое количество символов, стоящее в ряд.
+\begin{lstlisting}[language=Java] 
+String s = "jopa";
+\end{lstlisting} 
+Строки неизменяемый тип данных.
+\begin{lstlisting}[language=Java] 
+s = s + " piska";
+\end{lstlisting} 
+Создается новая строка.
+\begin{lstlisting}[language=Java] 
+s.length();
+\end{lstlisting} 
+Длина строки.
+\begin{lstlisting}[language=Java] 
+String h = "";
+\end{lstlisting} 
+Пустая строка.
+\begin{lstlisting}[language=Java] 
+s.substring(begin) 
+\end{lstlisting} 
+Подстрока начиная с позиции begin. Индексы элементов строки начинаются с нуля.
+\begin{lstlisting}[language=Java] 
+s.substring(begin,end);
+\end{lstlisting} 
+Часть строки с begin до end (не включая).
+\begin{lstlisting}[language=Java] 
+s.indexOf(chto);
+\end{lstlisting} 
+Номер позиции первого вхождения chto в строку s. Результат равен -1, если такого нет.
+\begin{lstlisting}[language=Java] 
+s.charAt(n) 
+\end{lstlisting} 
+Символ строки с указанным номером.\\
+Строки нельзя сравниваь операциями сравнения.
+\begin{lstlisting}[language=Java] 
+s.equals(s1);
+\end{lstlisting} 
+Равенство строк.
+\begin{lstlisting}[language=Java] 
+s.compareTo(s1);
+\end{lstlisting} 
+Эта штука сравнивает в лексикографическом порядке.
+\begin{lstlisting}[language=Java] 
+in.nexLine();
+\end{lstlisting} 
+Ввод строки с клавиатуры.
+\subsubsection{Пример}
+Дана строка и число. Хотим счиать с клаввиатуры.
+\begin{lstlisting}[language=Java] 
+int x = in.nextInt();
+String s = in.nextLine();
+\end{lstlisting} 
+Не будет работать.
+\begin{lstlisting}[language=Java] 
+int x = in.nextInt();
+in.nexLine();
+String s = in.nextLine();
+\end{lstlisting} 
+Будет работать.
 \end{document}
