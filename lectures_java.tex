@@ -651,7 +651,7 @@ in.nexLine();
 \end{lstlisting} 
 Ввод строки с клавиатуры.
 \subsubsection{Пример}
-Дана строка и число. Хотим счиать с клаввиатуры.
+Дана строка и число. Хотим счиать с клавиатуры.
 \begin{lstlisting}[language=Java] 
 int x = in.nextInt();
 String s = in.nextLine();
@@ -663,4 +663,84 @@ in.nexLine();
 String s = in.nextLine();
 \end{lstlisting} 
 Будет работать.
+\section{27.10.22}
+\subsection{Подпрограммы(статические методы)}
+\subsection{Подпрограммы без параметров}
+\begin{lstlisting}[language=Java] 
+public static resultType name() {
+    body;
+    return result;
+}
+\end{lstlisting} 
+void - подпрограмма ничего не возвращает. Хороший стиль программирования - ровно один return в последней строке.
+\subsubsection{Вызов подпрограммы.}
+\begin{lstlisting}[language=Java] 
+name();
+\end{lstlisting} 
+\subsubsection{Примеры}
+\begin{task}
+    Вводим двухзначное число, возвращаем $\Sigma$ цифр.
+\end{task}
+\begin{lstlisting}[language=Java] 
+public static int sumDigits(){
+    int x = in.nextInt();
+    return x/10 + x%10;
+}
+\end{lstlisting} 
+\begin{task}
+    Вводим целое число, проверяем на четность.
+\end{task}
+\begin{lstlisting}[language=Java] 
+public static isOdd() {
+    int x = in.nextIn();
+    return x%2 != 0;
+}
+\end{lstlisting} 
+\begin{task}
+    Ввести имя и вывести приветствие.
+\end{task}
+\begin{lstlisting}[language=Java] 
+public static void sayHello() {
+    String name = in.nextLine();
+    out.println("Hello, "+name+"!!!!!!!!!");
+}
+\end{lstlisting} 
+\subsection{Подпрограммы с параметрами.}
+\begin{lstlisting}[language=Java] 
+public static typeResult name(type name,type name){
+    body;
+} 
+\end{lstlisting} 
+\subsubsection{Пример}
+\begin{task}
+    Найти максимум двух целых чисел.
+\end{task}
+\begin{lstlisting}[language=Java] 
+static int max(int a,int b) {
+    int result;
+    if (a > b){
+        max = a;
+    }
+    else{
+        max = b;
+    }
+    return result;
+}
+\end{lstlisting} 
+Параметры передаются по значению.
+\begin{lstlisting}[language=Java] 
+f(x) 
+\end{lstlisting}
+x не меняется точно.
+\begin{task}
+    Подпрограмма заполнения массива четными числами от двух.
+\end{task}
+\begin{lstlisting}[language=Java] 
+static void fillArray(int [] a) {
+    a[0] = 2;
+    for (int i = 1;i < a.length();i++){
+       a[i] = a[i - 1] + 2;
+    }
+}
+\end{lstlisting} 
 \end{document}
