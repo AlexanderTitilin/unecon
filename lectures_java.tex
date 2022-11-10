@@ -1,22 +1,13 @@
-\documentclass{article}
+\documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
-\usepackage{hyperref}
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{geometry}
 \newtheorem{task}{Задача}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,
-	urlcolor=cyan,
-	pdftitle={Java Lectures},
-	pdfpagemode=FullScreen,
-}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -743,4 +734,66 @@ static void fillArray(int [] a) {
     }
 }
 \end{lstlisting} 
+\section{03.11.2022}
+\subsection{Рекурсия.}
+Рекурсия - это обращение к самому себе.
+\begin{task}
+    Факториал.
+\end{task}
+\begin{lstlisting}[language=Java] 
+static int fac(int n) {
+    if (n == 1) {
+        return 1;
+    }
+    return n * fac(n - 1);
+}
+\end{lstlisting} 
+\subsection{Структура реуррентной программы}
+\begin{enumerate}
+    \item Провекрка условия продолжения рекурсии.
+    \item  Если условие выполнилост
+        \begin{enumerate}
+            \item Действие
+            \item Вызов самой себя.
+        \end{enumerate}
+\end{enumerate}
+\begin{task}
+    С клавиатуры вводится последовательность целых чисел, которая кончается нулем.
+    Посчитать количество четных чисел.
+\end{task}
+\begin{lstlisting}[language=Java] 
+static int count() {
+    int x = in.nextInt();
+    if (x  == 0) {
+        return 0;
+    }
+
+    else {
+        if (x % 2 == 0) {
+            return 1 + count();
+        }
+        return count();
+    }
+}
+\end{lstlisting} 
+\begin{task}
+    Вывести на экран вертикально данно числа десятичные числа.
+\end{task}
+\begin{lstlisting}[language=Java] 
+static void digit(int n) {
+    if (n > 0) {
+        digit(n / 10);
+        out.println(n % 10);
+    }
+}
+\end{lstlisting} 
+\section{10.11.2022}
+\subsection{Объектно-ориентированное программирование.}
+Три кита (парадигмы) ОПП:
+\begin{itemize}
+    \item Абстрация
+    \item Инкапсуляция
+    \item Наследование
+    \item Полиморфизм
+\end{itemize}
 \end{document}
