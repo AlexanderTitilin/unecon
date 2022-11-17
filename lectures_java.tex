@@ -9,11 +9,7 @@
 \usepackage{geometry}
 \newtheorem{task}{Задача}
 \definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{mystyle}{
+\definecolor{codegray}{rgb}{0.5,0.5,0.5} \definecolor{codepurple}{rgb}{0.58,0,0.82} \definecolor{backcolour}{rgb}{0.95,0.95,0.92} \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
@@ -796,4 +792,97 @@ static void digit(int n) {
     \item Наследование
     \item Полиморфизм
 \end{itemize}
+\subsection{В главной программе.}
+\begin{lstlisting}[language=Java] 
+Rect r1;
+r1 = new Rect();
+r1.width = 3;
+r1.height = 4;
+out.println("S = " + r1.width*r1.height)
+Rect r2 = r1;
+Rect r3 = new Rect(5,6);
+out.println(r3.square())
+out.println(r3);
+r3.doubleMe();
+Rect r5 = r3.doubled();
+\end{lstlisting} 
+r2 -- ссылка на r1, а не новый прямоугольник.\\
+Rect -- конструктор данных, программа перестанет работать после написания своего конструктора в описании класса.
+\newpage
+\subsection{Описание класса <<Прямоугольник>>.}
+\begin{lstlisting}[language=Java] 
+class Rect {
+    private double width;
+    private double height;
+    public Rect(double width,double height) {
+        this.width = width;
+        this.height = height;
+    }
+    public Rect() {
+        
+    }
+    public double square() {
+        return width * height;
+    }
+    @Override
+    public String toString() {
+        return String.format("Rect[%.3f;%.3f]",width,height);
+    }
+    public double getWidth() {
+        return width;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setWidth(double width) {
+        if (width > 0) {
+            this.width =  width;
+        }
+    }
+    public void sedHeigth(double height) {
+        if (height > 0) {
+            this.height = height;
+        }
+    }
+    public void doubleMe() {
+        width *= 2;
+        height *= 2;
+    }
+    public Rect doubled() {
+        return new Rect(width*2,height*2);
+    }
+} 
+\end{lstlisting} 
+width и height --  поля класса Rect.
+\section{17.11.22}
+\subsection{Статические и нестатические (обычные) методы}
+К <<кому>> применяется метод, (существуетли объект (this), к которому применяется метод).
+\begin{itemize}
+    \item Если существует, нужен обычный.
+    \item Если  не сущетсвует, нужен static.
+\end{itemize}
+\begin{itemize}
+    \item Перед вызовом обычного метода нужно указать имя объекта. 
+    \item Перед именем статического метода при вызове надо писать имя класса.
+\end{itemize}
+
+\textbf{Исключение: } вызов метода изнутри класса, в этом случае методо применяется к текущему объекту.
+
+\textbf{Исключение: } вызрв статического метода внутри класса, в этом случае методод применяется к текущему классу.
+\subsubsection{Пример}
+square() в классе Rect -- обычный.
+\subsection{Пример}
+Функция модуля: Math.abs(x) -- Статический
+\section{Зачем нужны статические методы.}
+\begin{itemize}
+    \item Методы не привязанные к текущему классу (просто подпрограммы)
+    \item Создать объект того класса, в котором описан статический метод.
+    \item Когда нужно обрабатывать обрабатывать статические поля.
+\end{itemize}
+\textbf{Пример: } Создать Rect, зная полуширину и полувысоту
+\begin{lstlisting}[language=Java] 
+public static Rect newHalfRect(double x, double y)  {
+    return new Rect(x * 2, y * 2);
+}
+\end{lstlisting} 
 \end{document}
