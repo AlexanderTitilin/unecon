@@ -15,31 +15,6 @@
 \begin{document}
 \maketitle
 \tableofcontents
-% 	\[
-% 		a \ge 0 , \exists \alpha \ge 0 : \alpha^2 = a
-% 		.\]
-% \end{theorem}
-% \begin{proof}
-% 	Пусть $A = \{x \mid x \ge  0 , x^2 \le a\}, B = \{x \mid x \ge  0, x^2 \ge  a\}$.
-%
-% 	A левее B ($\forall  \alpha \in A \forall  \beta \in B, \alpha \le \beta $) Доказываем от противного
-%     Пусть $\exists \alpha \in A \exists  \beta \in B: \alpha > \beta \implies 
-%     \alpha^2 > \beta^2$ Противоречие.
-%
-%     $A \neq \emptyset$ так как  $0 \in A$
-%
-%      $B \neq \emptyset$ Так как $a + 1 \in B$
-%
-%      По аксиоме полноты  $\forall a \in A, \forall  b \in B : a \le c \le b$.
-%      $c^2 = a$ От противного. 
-%      \begin{enumerate}
-%          \item Пусть $c^2 < a$ Доказать, что $\exists n \in \mathbb{N}$ $(c + \frac{1}{n })^2 < a$ Противоречие $c + \frac{1}{n} \in A$ 
-%         \item
-%             Пусть $c^2 > a$ Доказать, что $\exists  n \in \mathbb{N}: (c - \frac{1}{n} > a) \implies
-%             c - \frac{1}{b} \in B$ 
-%              $$
-%      \end{enumerate}
-% \end{proof}
 \section{Предел последовательности.}
 \subsection{Окрестность точки.}
 Окрестность точки a - это произвольный открытый промежуток, содержащий точку a.
@@ -201,7 +176,6 @@ $x_n$ Ограничена сверху.
 	Если
 
 	\[
-
 		x_n \to a
 		.\]
 	\[
@@ -1599,4 +1573,365 @@ f(x) = \frac{x^2 - 2x}{x - 1}
 \begin{theorem}
     Пусть $f$ задана на промежутке $D$. Пусть $f$ дифференцируема, тогда $f$ выпуклая вниз  $\iff$ $\forall $ двух различных точек графика $f$, отрезок соединяющий эти точки выше графика.
 \end{theorem}
-\end{document}
+\section{Производные высших порядков.}
+\begin{definition}
+    $f$ определена на промежутке  $D$ и дифференцируема во всех точках D.
+    Рассмотрим  $f$, которая ставит каждому  $x \in D$ ставит в соответские  $f'(x)$.
+\end{definition}
+\section{Формула Тейлора.}
+\subsection{Формула Тейлора для многочленов.}
+\[
+f(x) = a_0 + a_1x + a_2x^2 + \dots + a_nx^n = c_0  + c_1(x-a) + c_2(x - a)^2 + \dots + c_n(x - a)^n
+.\] 
+\[
+f(a) = c_0
+.\] 
+\[
+    f'(x) = c_1 + 2c_2(x - a) + \dots + nc_n (x - a)^{n - }
+.\] 
+\[
+f'(a) = c_1
+.\] 
+\[
+f''(a) = 2c_2
+.\] 
+\[
+    f^{(k)} = k! c_k
+.\] 
+\[
+    \sum_{k = 0}^{n} \frac{1}{k!} f^{(k)}(a)(x - a)^k
+.\]
+\begin{theorem}[Формула Тейлора-Лагранжа]
+    Пусть $f$ задана на промежутке  $D$ и $( n + 1 )$ раз дифференцируема 
+    \[
+        f(x) = \sum_{n - k}^{n}  \frac{f^{k}(a)}{k!} (x - a)^k + \frac{f^{(n + 1)}(c)}{( n+1 )} (x - a)^{n + 1}
+    .\] 
+    Фигня под знаком суммы -- это многочлен n-ый  Тейлора функции $f$ в точке а. Обозначается $T_n$ 
+    \[
+    f(x) - T_n(x) =  R_n(x)
+    .\] 
+    $R_n(x)$ - n-ый остаток.
+    Цель: $\exists  c$ 
+\end{theorem}
+\subsection{Пример}
+\[
+    f(x) = \sin{x}
+.\] 
+\[
+a = 0
+.\] 
+\[
+n = 6
+.\] 
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        0 & 1 & 2 & 3 &4\\
+        \hline
+        $\sin{x}$ &  $\cos{x}$ &  $-\sin{x}$ &  $-\cos{x}$ & $\sin{x}$\\
+        \hline
+    \end{tabular}
+\end{center}
+\[
+    T_{6,f} = x - \frac{x^3}{6} + \frac{x^5}{120}
+.\] 
+\subsection{Формулы тейлора}
+\begin{enumerate}
+    \item
+    \[
+        f(x) = e^x
+    .\] 
+    \[
+        T_n(x) = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots + \frac{x^n}{n!}
+    .\] 
+    \item
+        \[
+            f(x) = \ln{(1 + x)}
+        .\] 
+        \[
+            f'(x) = \frac{1}{1 + x} = (1 + x)^{-1}
+        .\] 
+        \[
+            f''(x) =  -1(1 + x)^{-2}
+        .\] 
+        \[
+            f'''(x) = (-1)(-2)(1 + x)^{-3}
+        .\] 
+        \[
+            f^{(k)} = (-1)^{k - 1} (k - 1)!(1 + x)^{-k}
+        .\] 
+        \[
+            f^{k}(0) = (-1 )^{k - 1}(k - 1)^{-k}
+        .\] 
+        \[
+            T_{n,f,0} = \sum_{k = 0}^{n} \frac{(-1)^{k-1} (k - 1)!}{k!} x^k = \sum_{k=0}^{n} (-1)^{k - 1} \frac{x^k}{k}
+        .\] 
+        \item
+            \[
+                f(x) = \sin{x}
+            .\] 
+            \[
+                T_{2n} = x - \frac{x^3}{3!}  + \frac{x^5}{5!} + \dots + (-1)^{n - 1} \frac{x^{2n - 1}}{(2n - 1)!}
+            .\] 
+\end{enumerate}
+\section{Как найти многочлен Тейлора.}
+\[
+    f(x) = T_n(x)  = \frac{f^{(n + 1)}(x)}{(n + 1)!} (x - a)^{n + 1}
+.\] 
+\begin{theorem}
+    $f$ задана на промежутке  $D$ имеет  $n + 1$ производную во всех точках данного промежутка. Пусть  $\exists  M$ такое, что $\forall  x\in D$ выполняется неравенство $| f^{(n + 1)}(x) | \le  M$. Тогда  $\exists  \alpha$ функция бесконечно малая в точке $a$, такая что  $R_n(x) = \alpha(x)(x - a)^n$
+\end{theorem}
+\begin{proof}
+    \[
+        R_n(x)  = \frac{f^{(n - 1)}(c)}{(n + 1)!} (x - a) (x - a)^n
+    .\] 
+    \[
+  \alpha(x) =  \frac{f^{(n - 1)}(c)}{(n + 1)!} (x - a)
+    .\] 
+    \[
+    \lim_{x \to 0} \alpha(x) = 0
+    .\] 
+    \[
+        0 \le \frac{|f^{( n + 1 )}(x)|}{(n + 1)!} \le  \frac{M}{( n + 1 )!}
+    .\] 
+\end{proof}
+\[
+e^x = 1 + x + \frac{x^2}{2!} +  \frac{x^3}{3!} + \dots + \frac{x^n}{n!} + \alpha(x)x^n
+.\] 
+\[
+    e^{x^2}  = 1 + x^2 + \frac{x^4}{2!} + \dots + \alpha(x^2)x^{2n}
+.\] 
+\begin{theorem}
+    \[
+        f(x) = a_0 + a_1(x - a) + \dots + a_n(x - a)^n + \alpha(x)(x - a)^n
+    .\] 
+    \[
+    \lim_{x \to \infty} \alpha(x) =  0
+    .\] 
+    Тогда $a_0 + a_1(x -a) + \dots + a_n(x - a)^n$ совпадает с n-ым многочленом Тейлора в точке а.
+\end{theorem}
+\begin{theorem}[Пеано]
+    Пусть $f$  имеет n производных в точке а, тогда  $f(x) = f(a) + f'(a)(x - a) + \dots + \frac{f^{(n)}(a)}{n!}(x - a)^n + \alpha(x) (x - a)^n$
+\end{theorem}
+\begin{theorem}
+    $f$ имеет  $n$ производных в точке  $a$,то  $f(x)  = T_x(x) + \alpha(x)(x - a )^n$
+\end{theorem}
+\begin{proof}
+    \[
+    f(x) - T_n(x) = R_n(x)
+    .\] 
+    Для $k = 0,1,2,\dots,n$ $ f^{(k)}(a) = T^{(k)}_n(a)$
+    \[
+        R^{(k)}(a) = 0
+    .\] 
+    \[
+        \phi(a) = \phi'(a) = \dots = \phi^{(n)}(a) = 0 
+    .\] 
+    Пусть $n = 1$. 
+    \[
+    \phi(a) = \phi'(a) = 0
+    .\] 
+    Нужно доказать, что $\phi(x) =  \alpha(x)(x - a)$, где  $\alpha(a)$ бесконечно малая в точке  $a$
+    \[
+    \phi(x) = \phi(a) 
+    .\] 
+     \[
+    \phi(x) - \phi(a) = \phi'(a)(x - a) = \alpha(x)(x - a)
+    .\] 
+    Пусть $n = 2$
+    \[
+   \phi'(x)  = \alpha(x)(x - a)
+    .\] 
+\end{proof}
+    \section{Зная многочлен для производной найти многочлен для функци.}
+    Многочлен Тейлора для $f'$
+    \[
+        f'(a) + f''(a)(x - a) + \frac{f'''(a)}{2!}(x - a)^2 + \dots + \frac{f^{(n + 1)}(a)}{n!} (x - a)^n
+    .\] 
+    \[
+        f(a) + f'(a)(x - a) + \frac{f''(a)}{2!} (x - a)^2 + \dots + \frac{f^{(n + 1)}(a)}{(n+1)!} (x - a)^{n + 1}
+    .\] 
+    \section{Ряд тейлора для арктангенса}
+    \[
+        f(x) = \arctan{x}
+    .\] 
+    \[
+    f'(x) = \frac{1}{1 + x^2}
+    .\] 
+    \[
+        \frac{1}{1 - x} = 1 + x + \dots + x^{n - 1} + \alpha(x)x^n
+    .\] 
+    \[
+        \arctan{x} =  x - \frac{x^3}{3} + \frac{x^5}{5} + \dots + (-1)^{n-1} \frac{x^{2n - 1}}{2n - 1}
+    .\] 
+    \[
+        f(x) = \arcsin{x}
+    .\] 
+    \[
+        f'(x) = \frac{1}{\sqrt{1 - x^2}} = (1 - x^2)^{-\frac{1}{2}}
+    .\] 
+    \section{}
+    \[
+    f(x) =  o(f(x)), x \to a
+    .\] 
+    \[
+    f(x)  = T_x(x) + o(x-a)^n
+    .\] 
+    \section{Правило Лопиталя}
+    \begin{theorem}
+        $f,g$ заданы на  $(a;b)$ и дифференцируемы на $(a;b)$  $\forall  x \in (a;b) g'(x)  \neq 0$. Пусть
+         $\lim_{x \to a^+} \frac{f'(x)}{g'(x)} = A $
+         И пусть выполняется одно из условий
+         \begin{enumerate}
+             \item $\lim_{x \to a^+} f(x) = 0 \land \lim_{x \to a^+} g(x) = 0 $ 
+            \item
+                $\lim_{x \to a^+} g(x) = \infty$
+         \end{enumerate}
+         Тогда
+         \[
+         \lim_{x \to a^+} \frac{f(x)}{g(x)} = A
+         .\] 
+         \begin{proof}
+             \begin{enumerate}
+                 \item a -- число
+                     Положим $f(a) = 0 \land g(a) = 0, b_1 < b$
+                     $f,g$ непр на  $[a;b_1]$ и дифференцируема на $(a,b_1)$ 
+                     \[
+                     \frac{f(x)}{g(x)} = \frac{f(x) - f(a)}{f(x) - g(a)} = \frac{f'(c)}{g'(c)}
+                     .\] 
+                \item $a = - \infty$
+                     \[
+                    t = \frac{1}{x}
+                    .\] 
+                    \[
+                    \lim_{x \to -\infty} \frac{f(x)}{g(x)} = \lim_{t \to 0^-} \frac{f(\frac{1}{t})}{g(\frac{1}{t})}
+                    .\] 
+                    \[
+                    f(\frac{1}{t}) = F(t)
+                    .\] 
+                    \[
+                    g(\frac{1}{t}) = G(t)
+                    .\] 
+                    \[
+                    \lim_{t \to 0^-}  \frac{F'(t)}{G'(t)} = \lim_{t \to 0^-} \frac{f'(\frac{1}{t})}{g'(\frac{1}{t})} = A
+                    .\] 
+                    \[
+                    \lim_{t \to 0^-} \frac{F(t)}{G(t)} = A = \lim_{t \to 0^-} \frac{f}{}
+                    .\] 
+             \end{enumerate}
+         \end{proof}
+    \end{theorem}
+    \section{Достаточное условие строгого экстренума}
+    \begin{theorem}
+        $D$ промежуток,  $a \in D$. $f $ задана на  $D$ и  $n$ раз дифференцирумеа в точке  $a$. Пусть  $f'(a) = 0, f''(a) = \dots = f^(n - 1)(a) = 0$
+        Тогда , если $f^{(n)}(a) > 0,$, n четно, а точка строгого минимума. если  $f^{(n)}(a) < 0$ n четно, то  $a$ точка строгого максимума
+    \end{theorem}
+    \begin{proof}
+        \[
+            f(x) = f(a) + \frac{f^{( n )}(a)}{n!}(x - a)^n + o(x - a)^n
+        .\] 
+        \[
+            f(a) + (\frac{f^{(n)}(a)}{n} + o(1))(x -a)^n
+        .\] 
+    \end{proof}
+\section{Первообразная}
+D -- промежуток, $f : D \to \mathbb{R}, F: D \to \mathbb{R}$
+F называется первобразной, если $\forall  x \in D F'(x) = f(x)$
+\begin{theorem}
+    Пусть  $F_1,F_2$ - первообразные $f$, тогда  $F_1 - F_2$ постоянна
+\end{theorem}
+\begin{proof}
+    \[
+        (F_1 - F_2)' = F'_1 - F'_2 = f - f = 0
+    .\] 
+\end{proof}
+\begin{theorem}[Теорема Дарбу]
+    Пусть $f$ задана на промежутке  $D$ и дифферинцируема. Пусть  $a,b \in D, f'(a) < 0 , f'(b) > 0$ Тогда  $\exists c, f'(c) = $
+\end{theorem}
+\begin{proof}
+    Будем считать, что $a < b$. Рассмотрим  $[a;b]$. f непрерывна на  $[a,b]$. Пусть  $c \in [a;b]$, такая что  $f(c)$ наименьшая
+    Докажем, что  $c \in (a;b)$
+     \[
+    c =  a
+    .\] 
+    \[
+    f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a} < 0
+    .\] 
+\end{proof}
+\section{Таблица первообразных}
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        $f(x)$ &  $F(x)$\\
+        \hline
+        $a$ &  $ax$\\
+        \hline
+        $x^{\alpha} ~ \alpha \neq -1$ & $\frac{x^{\alpha + 1}}{\alpha + 1}$\\
+        \hline
+        $a^{x}$ &  $\frac{a^x}{\ln{a}}$ \\
+        \hline
+        $e^x$ &  $e^x$\\
+        \hline
+        $\sin{x}$ &  $-\cos{x}$\\
+        \hline
+        $\cos{x}$ &  $\sin{x}$\\
+        \hline
+        $\frac{1}{\cos^2{x}}$ & $\tg{x}$\\
+        \hline
+        $\frac{1}{\sin^2{x}}$ & $-\ctg{x}$\\
+        \hline
+        $\frac{1}{\sqrt{1 - x^2} }$ & $\arcsin{x}$\\
+        \hline
+        $\frac{1}{1 + x^2}$ & $\arctan{x}$\\
+        \hline
+    \end{tabular}
+\end{center}
+\section{Свойства первообразных}
+\begin{enumerate}
+    \item Если $F$ -- первоборазная  $f$,  $G$ -- первообразная  $g$, то  $F + G$ -- первообразная $f + g$
+        \[
+        \int (f + g) = \int f + \int g
+        .\] 
+    \item $F$ первообразная  $f$,  $\alpha \in \mathbb{R}$, то $\alphaF$ -- первобразная  $\alpha f$
+        \[
+        \int \alpha f = \alpha \int f + C
+        .\] 
+    \item
+        \[
+            (fg)' = f'g + fg'
+        .\] 
+        \[
+        \int (fg)' = \int(f'g + fg') 
+        .\] 
+        \[
+        fg = \int f'g + \int f g' + C
+        .\] 
+        \[
+        \int f g' =  fg - \int f' g
+        . \] 
+\item
+    \[
+    \int f(x) dx = F(x) + C
+    .\] 
+    \[
+    \int f(g(x))g'(x) dx = F(g(x)) + C
+    .\] 
+\end{enumerate}
+\section{Пример}
+\[
+    \int \ln \mathrm{d} x = \int \ln{x} x' \mathrm{d} x = 
+    x\ln{x} - \int \frac{1}{x} x \mathrm{d}x  = x\ln{x} - x + C
+.\] 
+\section{кт}
+\subsection{}
+\[
+    y = \sqrt[3]{x(x - 3)^2}  -x
+.\] 
+\[
+    \lim_{x \to \pm \infty} = \sqrt[3]{\frac{(x - 3)^2}{x^2}}  -1 = 0
+.\] 
+\subsection{}
+\[
+    \sqrt[3]{x^2} - \sqrt[3]{(x - 4)^2} 
+.\] 
+\end{document} 
